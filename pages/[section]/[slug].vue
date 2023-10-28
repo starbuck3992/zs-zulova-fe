@@ -1,7 +1,6 @@
 <template>
   <h1>{{page.title}}</h1>
   <div v-html="page.content"></div>
-  <NuxtPage />
 </template>
 
 <script setup lang="ts">

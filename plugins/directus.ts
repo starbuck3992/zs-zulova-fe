@@ -11,9 +11,11 @@ interface Schema {
     pages: Page[];
 }
 
-const directus = createDirectus<Schema>('https://zszulova.directus.app').with(rest());
-
 export default defineNuxtPlugin(() => {
+    const runtimeConfig = useRuntimeConfig()
+
+    const directus = createDirectus<Schema>(runtimeConfig.public.apiBase).with(rest());
+
     return {
         provide: { directus, readItem, readItems },
     };
