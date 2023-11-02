@@ -1,18 +1,16 @@
 <template>
-  <h1>{{page.title}}</h1>
-  <div v-html="page.content"></div>
+  <div>
+    <h1>{{ params }}</h1>
+    <!-- Další obsah stránky -->
+  </div>
 </template>
 
 <script setup lang="ts">
-const { $directus, $readItem } = useNuxtApp()
-const route = useRoute()
+import { ref } from 'vue';
+import { useRoute } from 'vue-router';
 
-const { data: page } = await useAsyncData('page', () => {
-  return $directus.request($readItem('pages', route.params.slug))
-})
+const route = useRoute();
 
-if (!page.value) throw createError({
-  statusCode: 404,
-  statusMessage: 'Page Not Found'
-})
+const params = ref(route.params);
+
 </script>
