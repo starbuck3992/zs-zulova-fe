@@ -22,7 +22,6 @@
   </div>
   <pre>{{ pages }}</pre>
   <pre>{{ articles }}</pre>
-  <pre>{{ menus }}</pre>
   <div class="mt-16 space-y-20 lg:mt-20 lg:space-y-20">
     <article v-for="post in posts" :key="post.id"
       class="relative isolate flex flex-col gap-8 lg:flex-row justify-center px-5">
@@ -75,10 +74,10 @@ const { data: articles } = await useAsyncData('articles', () => {
   }))
 })
 
-const { data: menus } = await useAsyncData('menus', () => {
-  return $directus.request($readItems('menus', {
-  }))
-})
+// const { data: menus } = await useAsyncData('menus', () => {
+//   return $directus.request($readItems('menus', {
+//   }))
+// })
 
 const cards = [
   {

@@ -1,18 +1,20 @@
 <template>
     <div>
         <ul role="list" class="-mx-2 space-y-1">
-            <li v-for="item in menuItems" :key="item.label">
-                <template v-if="!Array.isArray(item.submenu) && !Array.isArray(item.menu_items)">
-                    <nuxt-link
+            <li v-for="item in menuItems" :key="item.id">
+                <template v-if="!item.hasChildren">
+                    <NuxtLink
                         class="flex justify-between w-full px-4 py-1 text-sm font-semibold text-gray-700 hover:text-blue-600 hover:bg-gray-50 focus:outline-none focus-visible:ring focus-visible:ring-blue-500 focus-visible:ring-opacity-75 rounded-md"
-                        :to="{ name: 'section-slug', params: { section: item.page_id.collection, slug: item.page_id.key.toString() } }">
-                        {{ item.label }}
-                    </nuxt-link>
-                </template>
-                <Disclosure v-else as="div" class="mt-2">
+                        :to="`/${item.title}/${item.page.slug}`"
+                        :target="item.openInNewTab ? '_blank' : '_self'"
+                    >
+                        {{ item.title }}
+                    </NuxtLink>
+              </template>
+              <Disclosure v-else as="div" class="mt-2">
                     <DisclosureButton
                         class="flex justify-between w-full px-4 py-2 text-sm font-semibold text-gray-700 hover:text-blue-600 hover:bg-gray-50 focus:outline-none focus-visible:ring focus-visible:ring-blue-500 focus-visible:ring-opacity-75 rounded-md">
-                        {{ item.label }}
+                        {{ item.title }}
                         <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor"
                             aria-hidden="true">
                             <path fill-rule="evenodd"
@@ -21,8 +23,7 @@
                         </svg>
                     </DisclosureButton>
                     <DisclosurePanel class="px-4 pt-2 pb-2 text-sm text-gray-500">
-                        <DynamicMenu v-if="Array.isArray(item.submenu)" :menuItems="item.submenu" />
-                        <DynamicMenu v-if="Array.isArray(item.menu_items)" :menuItems="item.menu_items" />
+                        <DynamicMenu :menuItems="item.children" />
                     </DisclosurePanel>
                 </Disclosure>
             </li>
