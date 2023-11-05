@@ -23,7 +23,6 @@ const { data: page } = await useAsyncData('pages', () => {
     },
     fields: [
       'id, title, content',
-      'article_id.*',
     ]
   }))
 })
