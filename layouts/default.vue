@@ -70,7 +70,9 @@
       <!-- Sidebar component, swap this element with another sidebar if you like -->
       <div class="flex grow flex-col gap-y-5 overflow-y-auto border-r border-gray-200 bg-white px-6">
         <div class="flex h-16 shrink-0 items-center">
-          <img class="w-auto h-full mt-5" src="/logo.png" alt="ZŠ žulová" />
+          <NuxtLink to="/">
+            <img class="w-auto h-full mt-5" src="/logo.png" alt="ZŠ žulová" />
+          </NuxtLink>
         </div>
         <nav class="flex flex-1 flex-col">
           <ul role="list" class="flex flex-1 flex-col gap-y-7">
@@ -184,7 +186,7 @@ const { $directus, $readItems } = useNuxtApp()
     return $directus.request($readItems('navigation', {
       fields: [
         'id, title',
-        'items.id, items.title, items.url, items.slug, items.hasChildren, items.openInNewTab',
+        'items.id, items.title, items.url, items.hasChildren, items.openInNewTab',
         'items.page.id, items.page.title, items.page.slug',
         'items.children.id, items.children.title',
         'items.children.page.id, items.children.page.title, items.children.page.slug'

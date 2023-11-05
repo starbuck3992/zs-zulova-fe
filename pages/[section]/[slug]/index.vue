@@ -7,3 +7,5 @@
     <NuxtLink to="/">Back to Home page</NuxtLink>
   </div>
 </template>
+<script setup lang="ts">
+</script>

@@ -5,7 +5,7 @@
                 <template v-if="!item.hasChildren">
                     <NuxtLink
                         class="flex justify-between w-full px-4 py-1 text-sm font-semibold text-gray-700 hover:text-blue-600 hover:bg-gray-50 focus:outline-none focus-visible:ring focus-visible:ring-blue-500 focus-visible:ring-opacity-75 rounded-md"
-                        :to="`/${item.title}/${item.page.slug}`"
+                        :to="`/${item.page.title}/${item.page.slug}`"
                         :target="item.openInNewTab ? '_blank' : '_self'"
                     >
                         {{ item.title }}
