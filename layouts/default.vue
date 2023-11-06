@@ -30,7 +30,7 @@
                 <nav class="flex flex-1 flex-col">
                   <ul role="list" class="flex flex-1 flex-col gap-y-7">
                     <li>
-                      <ul role="list" class="-mx-2 space-y-1">
+                      <ul v-if="navigation[0]" role="list" class="-mx-2 space-y-1">
                         <DynamicMenu :menuItems="navigation[0].items" />
                       </ul>
                     </li>
@@ -53,7 +53,7 @@
           </NuxtLink>
         </div>
         <nav class="flex flex-1 flex-col">
-          <ul role="list" class="flex flex-1 flex-col gap-y-7">
+          <ul v-if="navigation[0]" role="list" class="flex flex-1 flex-col gap-y-7">
             <DynamicMenu :menuItems="navigation[0].items" />
           </ul>
         </nav>
