@@ -1,18 +1,18 @@
 <template>
-  <div class="relative isolate overflow-hidden bg-gray-900 shadow-lg rounded-b-lg h-96">
+  <div class="relative isolate overflow-hidden bg-gray-900 shadow-lg rounded-b-lg lg:h-96">
     <div class="absolute bg-sky-950 z-10 w-full h-full opacity-40"></div>
-    <img src="/skola.jpg" alt="" class="absolute inset-0 -z-10 h-96 w-full object-cover object-right md:object-center" />
+    <img src="/skola.jpg" alt="" class="absolute inset-0 -z-10 h-full lg:h-96 w-full object-cover object-right md:object-center" />
     <div class="mx-auto max-w-7xl px-6 lg:px-8 z-50 relative">
-      <div class="mx-auto max-w-2xl lg:mx-0 py-10">
+      <div class="mx-auto max-w-2xl lg:mx-0 pt-10">
         <h2 class="text-4xl font-bold tracking-tight text-white sm:text-6xl uppercase">ZŠ ŽULOVÁ</h2>
         <p class="mt-3 text-lg sm:text-3xl leading-8 text-white font-bold uppercase">Škola pro všechny</p>
       </div>
-      <div class="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-6 sm:mt-20 lg:mx-0 lg:max-w-none lg:grid-cols-4 lg:gap-8">
+      <div class="mx-auto py-10 lg:py-0 lg:mt-20 grid max-w-2xl grid-cols-1 gap-6 lg:mx-0 lg:max-w-none sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
         <div v-for="card in cards" :key="card.name"
-          class="flex gap-x-4 rounded-xl bg-gray-100 hover:bg-white p-6 ring-1 ring-inset ring-white/50 cursor-pointer">
+          class="flex gap-x-4 rounded-xl bg-gray-100 hover:bg-white p-6 ring-1 ring-inset ring-white/10 cursor-pointer">
           <a :href="card.link">
             <component :is="card.icon" class="h-7 w-5 flex-none text-blue-600" aria-hidden="true" />
-            <div class="text-base leading-7">
+            <div class="text-sm 2xl:text-base leading-7">
               <h3 class="font-semibold text-black">{{ card.name }}</h3>
             </div>
           </a>
@@ -24,7 +24,7 @@
   <pre>{{ articles }}</pre>
   <div class="mt-16 space-y-20 lg:mt-20 lg:space-y-20">
     <article v-for="post in posts" :key="post.id"
-      class="relative isolate flex flex-col gap-8 lg:flex-row justify-center px-5">
+      class="relative isolate flex gap-8 flex-row justify-center px-5">
       <div class="relative aspect-[16/9] sm:aspect-[2/1] lg:aspect-square lg:w-64 lg:shrink-0">
         <img :src="post.imageUrl" alt="" class="absolute inset-0 h-auto w-full rounded-2xl bg-gray-50 object-cover" />
       </div>

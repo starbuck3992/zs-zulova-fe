@@ -16,7 +16,7 @@ const { $directus, $readItems } = useNuxtApp()
 import { useRoute } from 'vue-router';
 const route = useRoute();
 
-console.log('slug page',route.params.slug)
+console.log('ARTICLES page',route.params.slug)
 const { data: article } = await useAsyncData('articles', () => {
   return $directus.request($readItems('articles', {
     filter: { slug: { _eq: route.params.slug }
