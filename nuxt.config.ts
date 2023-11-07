@@ -5,6 +5,7 @@ export default defineNuxtConfig({
       apiBase: process.env.API_BASE || "http://localhost:8055",
     },
   },
+  css: ['primevue/resources/themes/tailwind-light/theme.css'],
   devtools: { enabled: true },
   modules: ["@nuxtjs/tailwindcss", "nuxt-primevue",],
   primevue: {
