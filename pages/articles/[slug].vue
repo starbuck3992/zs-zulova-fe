@@ -7,20 +7,23 @@
       <div class="mt-5" v-html="article[0].content">
 
       </div>
-      <div v-if="article[0].gallery && article[0].gallery.length > 0" class="flex justify-center w-full mt-10">
-        <Galleria :value="article[0].gallery" :responsiveOptions="responsiveOptions" :numVisible="3" :circular="true"
-          :showItemNavigators="true" :showItemNavigatorsOnHover="true" :autoPlay="true" :transitionInterval="4000"
-          containerStyle="max-width: 100%">
-          <template #item="slotProps">
-            <img :src="'https://lobster-app-mv2hv.ondigitalocean.app/assets/' + slotProps.item.directus_files_id"
-              alt="ZS Zulova image" style="width: auto; height: 300px; display: block" />
-          </template>
-          <template #thumbnail="slotProps">
-            <img :src="'https://lobster-app-mv2hv.ondigitalocean.app/assets/' + slotProps.item.directus_files_id"
-              alt="ZS Zulova image" style="width: auto; height: 100px; display: block" />
-          </template>
+      <div v-if="article[0].gallery && article[0].gallery.length > 0" class="card flex justify-content-center">
+        <Galleria v-model:activeIndex="activeIndex" v-model:visible="displayCustom" :value="article[0].gallery" :responsiveOptions="responsiveOptions" :numVisible="7"
+            containerStyle="max-width: 850px" :circular="true" :fullScreen="true" :showItemNavigators="true" :showThumbnails="false">
+            <template #item="slotProps">
+                <img :src="'https://lobster-app-mv2hv.ondigitalocean.app/assets/'+slotProps.item.directus_files_id" :alt="'image'" style="width: 100%; max-height: 600px; display: block" />
+            </template>
+            <template #thumbnail="slotProps">
+                <img :src="'https://lobster-app-mv2hv.ondigitalocean.app/assets/'+slotProps.item.directus_files_id" :alt="'image'" style="display: block" />
+            </template>
         </Galleria>
-      </div>
+
+        <div v-if="article[0].gallery" class="grid grid-cols-4 gap-2" style="max-width: 400px">
+            <div v-for="(image, index) of article[0].gallery" :key="index" class="col-span-1">
+                <img :src="'https://lobster-app-mv2hv.ondigitalocean.app/assets/' + image.directus_files_id" :alt="'image'" style="cursor: pointer" @click="imageClick(index)" />
+            </div>
+        </div>
+    </div>
     </div>
   </div>
 </template>
@@ -43,7 +46,7 @@ const { data: article } = await useAsyncData('articles', () => {
     ]
   }))
 })
-
+const activeIndex = ref(0);
 const responsiveOptions = ref([
   {
     breakpoint: '1300px',
@@ -54,4 +57,14 @@ const responsiveOptions = ref([
     numVisible: 1
   }
 ]);
+
+const displayCustom = ref(false);
+
+const imageClick = (index) => {
+    activeIndex.value = index;
+    displayCustom.value = true;
+};
 </script>
+<style scoped>
+</style>
+

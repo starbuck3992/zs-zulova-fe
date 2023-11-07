@@ -6,7 +6,31 @@ export default defineNuxtConfig({
     },
   },
   devtools: { enabled: true },
-  modules: ["@nuxtjs/tailwindcss", 'nuxt-primevue'],
+  modules: ["@nuxtjs/tailwindcss", "nuxt-primevue",],
+  primevue: {
+    usePrimeVue: true,
+    options: {},
+    importPT: undefined,
+    cssLayerOrder: "tailwind-base, primevue, tailwind-utilities",
+    components: {
+      prefix: "",
+      name: undefined,
+      include: ['Galleria'],
+      exclude: undefined,
+    },
+    directives: {
+      prefix: "",
+      name: undefined,
+      include: undefined,
+      exclude: undefined,
+    },
+    composables: {
+      prefix: "",
+      name: undefined,
+      include: undefined,
+      exclude: undefined,
+    },
+  },
   app: {
     head: {
       link: [
