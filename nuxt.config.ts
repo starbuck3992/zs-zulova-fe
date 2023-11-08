@@ -1,17 +1,17 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+const path = require('path');
 export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       apiBase: process.env.API_BASE || "http://localhost:8055",
     },
   },
-  css: ['primevue/resources/themes/tailwind-light/theme.css'],
   devtools: { enabled: true },
   modules: ["@nuxtjs/tailwindcss", "nuxt-primevue",],
   primevue: {
     usePrimeVue: true,
     options: {},
-    importPT: undefined,
+    importPT: { as: 'MyCustomPreset', from: '@/assets/presets/primevue.ts'},
     cssLayerOrder: "tailwind-base, primevue, tailwind-utilities",
     components: {
       prefix: "",

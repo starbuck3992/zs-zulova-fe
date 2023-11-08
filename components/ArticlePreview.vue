@@ -15,10 +15,10 @@
                     </div>
                     <div class="group relative max-w-x xl:max-w-2xl w-[600px]">
                         <h3 class="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
-                            <a :href="post.articles_id.slug" :target="post.articles_id.target">
+                            <span>
                                 <span class="absolute inset-0" />
                                 {{ post.articles_id.title }}
-                            </a>
+                            </span>
                         </h3>
                         <p class="mt-5 text-sm leading-6 text-gray-600" v-html="post.articles_id.content"></p>
                     </div>
