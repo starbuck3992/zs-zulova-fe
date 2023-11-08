@@ -7,7 +7,6 @@
       </div>
 
       <!-- Articles -->
-      <div v-if="page[0]?.articles && page[0]?.articles?.length > 0" class="border-t border-gray-200 mt-5"></div>
       <ArticlePreview v-if="page[0]?.articles && page[0]?.articles?.length > 0" :posts="page[0].articles"></ArticlePreview>
     </div>
   </div>
@@ -27,6 +26,7 @@ const { data: page } = await useAsyncData('pages', () => {
       'id, title, content', 
       'articles.articles_id.*',
       'articles.articles_id.gallery.*',
+      'articles.articles_id.user_created.*'
     ]
   }))
 })
