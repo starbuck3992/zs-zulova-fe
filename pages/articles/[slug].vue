@@ -1,9 +1,8 @@
 <template>
   <NuxtLink to="/">Zpět na domovskou stránku</NuxtLink>
   <div class="mx-auto max-w-7xl px-6 lg:px-8">
-    <div class="mx-auto max-w-2xl pt-10">
-      <h2 v-if="article[0]?.title" class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">{{ article[0]?.title
-      }}</h2>
+    <div v-if="article" class="mx-auto max-w-2xl pt-10">
+      <h2 v-if="article[0]?.title" class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">{{ article[0]?.title }}</h2>
       <div class="mt-5" v-if="article[0]?.content" v-html="article[0].content">
 
       </div>

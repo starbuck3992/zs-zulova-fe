@@ -20,64 +20,12 @@
       </div>
     </div>
   </div>
-  <pre>{{ pages }}</pre>
-  <pre>{{ articles }}</pre>
-  <div class="mt-16 space-y-20 lg:mt-20 lg:space-y-20">
-    <article v-for="post in posts" :key="post.id"
-      class="relative isolate flex gap-8 flex-row justify-center px-5">
-      <div class="relative aspect-[16/9] sm:aspect-[2/1] lg:aspect-square lg:w-64 lg:shrink-0">
-        <img :src="post.imageUrl" alt="" class="absolute inset-0 h-auto w-full rounded-2xl bg-gray-50 object-cover" />
-      </div>
-      <div>
-        <div class="flex items-center gap-x-4 text-xs">
-          <time :datetime="post.datetime" class="text-gray-500">{{ post.date }}</time>
-        </div>
-        <div class="group relative max-w-x xl:max-w-2xl">
-          <h3 class="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
-            <a :href="post.href" :target="post.target">
-              <span class="absolute inset-0" />
-              {{ post.title }}
-            </a>
-          </h3>
-          <p class="mt-5 text-sm leading-6 text-gray-600">{{ post.description }}</p>
-        </div>
-        <div class="mt-6 flex border-t border-gray-900/5 pt-6">
-          <div class="relative flex items-center gap-x-4">
-            <img :src="post.author.imageUrl" alt="" class="h-10 w-10 rounded-full bg-gray-50" />
-            <div class="text-sm leading-6">
-              <p class="font-semibold text-gray-900">
-                <a :href="post.author.href">
-                  <span class="absolute inset-0" />
-                  {{ post.author.name }}
-                </a>
-              </p>
-              <p class="text-gray-600">{{ post.author.role }}</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </article>
-  </div>
+ 
 </template>
 
 <script setup lang="ts">
 import { LifebuoyIcon, NewspaperIcon, PhoneIcon } from "@heroicons/vue/20/solid";
 
-const { $directus, $readItems } = useNuxtApp()
-const { data: pages } = await useAsyncData('pages', () => {
-  return $directus.request($readItems('pages'))
-})
-
-const { data: articles } = await useAsyncData('articles', () => {
-  return $directus.request($readItems('articles', {
-    filter: { page_id: { _eq: 2 } }
-  }))
-})
-
-// const { data: menus } = await useAsyncData('menus', () => {
-//   return $directus.request($readItems('menus', {
-//   }))
-// })
 
 const cards = [
   {
@@ -102,47 +50,5 @@ const cards = [
     icon: PhoneIcon,
     target: '_parent',
   },
-]
-
-const posts = [
-  {
-    id: 1,
-    title: 'Badatelská výuka v 9. třídě',
-    href: '#',
-    description:
-      'Skupinová práce na hodinách dějepisu v deváté třídě – Tajemství vojenského kufříku – 1. světová válka Hodina je zaměřena na podporu badatelských dovedností. Deváťáci si musí vybrat jeden ze čtyř kufříků, prozkoumat jeho obsah a na základě zjištěných informací sestavit příběh československého vojáka 1. světové války. Kufr obsahuje osobní dokumenty a denní věci legionářů, ale třeba i předměty, které jim krátily dlouhé večery a zmírnily stesk po domově. odkaz: https://www.vhu.cz/operace-historikon-zakladni-informace-a-objednavky-2/tajemstvi-vojenskeho-kufriku/',
-    imageUrl:
-      'https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3603&q=80',
-    date: '16 Května, 2021',
-    datetime: '2020-03-16',
-    category: { title: 'Marketing', href: '#' },
-    author: {
-      name: 'Petr Vylíčil',
-      role: 'Ředitel školy',
-      href: '#',
-      imageUrl:
-        '/user.png',
-    },
-  },
-  {
-    id: 2,
-    title: 'Motivační výlet 2. třída',
-    href: '#',
-    description:
-      'Průvodci  letošního motivačního výletu 2. třídy byli Žuláci ze Sedmilánského kopce z knihy Pohádek a pověstí z Rychlebských hor od Karla Jedonka.  Zajímali nás jak Žuláci samotní, tak veškeré horniny v našem okolí a nejvíc ze všech samozřejmě žula. Po přečtení pověsti v dětech vyvstala otázka : „ Co je to vlastně žula ?“ V naší milé Žulové nebyla nouze na ukázky a vysvětlování. Vše bylo náplní našeho motivačního výletu. Vše – jak být spolu, lépe se poznat, zažít dobrodružství a něco se dozvědět.',
-    imageUrl:
-      'https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3603&q=80',
-    date: '16 Května, 2021',
-    datetime: '2020-03-16',
-    category: { title: 'Marketing', href: '#' },
-    author: {
-      name: 'Petr Vylíčil',
-      role: 'Ředitel školy',
-      href: '#',
-      imageUrl:
-        '/user.png',
-    },
-  },
-  // More posts...
 ]
 </script>
