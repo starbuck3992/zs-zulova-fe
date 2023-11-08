@@ -4,7 +4,7 @@
       <li v-for="item in menuItems" :key="item.id">
         <Disclosure v-slot="{ open }" v-if="item.hasChildren" as="div" class="mt-2">
           <DisclosureButton
-            class="flex w-full text-gray-700 hover:text-indigo-600 hover:bg-gray-50 group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold">
+            class="flex w-full text-gray-700 hover:text-indigo-600 hover:bg-gray-50 group gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold">
             {{ item.title }}
             <span v-if="open" class="material-symbols-outlined">
               keyboard_arrow_up

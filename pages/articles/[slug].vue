@@ -2,12 +2,12 @@
   <NuxtLink to="/">Zpět na domovskou stránku</NuxtLink>
   <div class="mx-auto max-w-7xl px-6 lg:px-8">
     <div class="mx-auto max-w-2xl pt-10">
-      <h2 v-if="article[0].title" class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">{{ article[0].title
+      <h2 v-if="article[0]?.title" class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">{{ article[0]?.title
       }}</h2>
-      <div class="mt-5" v-html="article[0].content">
+      <div class="mt-5" v-if="article[0]?.content" v-html="article[0].content">
 
       </div>
-      <div v-if="article[0].gallery && article[0].gallery.length > 0" class="card flex justify-content-center">
+      <div v-if="article[0]?.gallery && article[0]?.gallery?.length > 0" class="card flex justify-content-center mt-10">
         <Galleria v-model:activeIndex="activeIndex" v-model:visible="displayCustom" :value="article[0].gallery" :responsiveOptions="responsiveOptions" :numVisible="7"
             containerStyle="max-width: 850px" :circular="true" :fullScreen="true" :showItemNavigators="true" :showThumbnails="false">
             <template #item="slotProps">
@@ -35,7 +35,6 @@ import { useRoute } from 'vue-router';
 import Galleria from 'primevue/galleria';
 const route = useRoute();
 
-console.log('ARTICLES page', route.params.slug)
 const { data: article } = await useAsyncData('articles', () => {
   return $directus.request($readItems('articles', {
     filter: {
