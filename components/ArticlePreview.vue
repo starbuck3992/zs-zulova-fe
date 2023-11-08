@@ -27,10 +27,8 @@
                             <img src="/user.png" alt="" class="h-10 w-10 rounded-full bg-gray-50" />
                             <div class="text-sm leading-6">
                                 <p class="font-semibold text-gray-900">
-                                    <a>
-                                        <span class="absolute inset-0" />
+                                   <span class="absolute inset-0" />
                                         Petr Vylíčil
-                                    </a>
                                 </p>
                                 <p class="text-gray-600">Ředitel</p>
                             </div>
