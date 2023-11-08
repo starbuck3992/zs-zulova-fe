@@ -1,6 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 const path = require('path');
 export default defineNuxtConfig({
+  ssr: false,
   css: ['primevue/resources/themes/lara-light-teal/theme.css'],
   runtimeConfig: {
     public: {
