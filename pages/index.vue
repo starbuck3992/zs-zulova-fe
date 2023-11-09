@@ -28,7 +28,6 @@ import { LifebuoyIcon, NewspaperIcon, PhoneIcon } from "@heroicons/vue/20/solid"
 const { $directus, $readItems } = useNuxtApp()
 import { useRoute } from 'vue-router';
 import ArticlePreview from '~/components/ArticlePreview.vue';
-const route = useRoute();
 
 const { data: articles } = await useAsyncData('articles', () => {
   return $directus.request($readItems('articles', {
