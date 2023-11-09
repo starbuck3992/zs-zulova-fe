@@ -1,5 +1,5 @@
 <template>
-    <div class="border-t border-gray-200 mt-5"></div>
+    <div v-if="!mainPage" class="border-t border-gray-200 mt-5"></div>
 
     <!-- From Main Pages -->
     <div v-if="mainPage" class="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2 xl:grid-cols-3 px-5">
@@ -63,11 +63,9 @@
                     <img src="/user.png" alt="" class="h-10 w-10 rounded-full bg-gray-50" />
                     <div class="text-sm leading-6">
                         <p class="font-semibold text-gray-900">
-                            <span>
-                                <span class="absolute inset-0" />
+                                <span class="absolute inset-0"></span>
                                 {{ post.articles_id.user_created.first_name }}
                                 {{ post.articles_id.user_created.last_name }}
-                            </span>
                         </p>
                         <p class="text-gray-600"></p>
                     </div>

@@ -1,28 +1,38 @@
 <template>
   <NuxtLink to="/">Zpět na domovskou stránku</NuxtLink>
-  <div class="mx-auto max-w-7xl px-6 lg:px-8">
-    <div v-if="article" class="mx-auto max-w-2xl pt-10">
-      <h2 v-if="article[0]?.title" class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">{{ article[0]?.title }}</h2>
+  <div class="mx-auto max-w-7xl 2xl:max-w-[1500px] px-6 lg:px-8">
+    <div v-if="article" class="mx-auto max-w-2xl xl:max-w-5xl pt-10">
+      <h2 v-if="article[0]?.title" class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">{{
+        article[0]?.title }}</h2>
       <div class="mt-5" v-if="article[0]?.content" v-html="article[0].content">
 
       </div>
-      <div v-if="article[0]?.gallery && article[0]?.gallery?.length > 0" class="card flex justify-content-center mt-10">
-        <Galleria v-model:activeIndex="activeIndex" v-model:visible="displayCustom" :value="article[0].gallery" :responsiveOptions="responsiveOptions" :numVisible="7"
-            containerStyle="max-width: 850px" :circular="true" :fullScreen="true" :showItemNavigators="true" :showThumbnails="false">
-            <template #item="slotProps">
-                <img :src="'https://lobster-app-mv2hv.ondigitalocean.app/assets/'+slotProps.item.directus_files_id" :alt="'image'" style="width: 100%; max-height: 600px; display: block" />
-            </template>
-            <template #thumbnail="slotProps">
-                <img :src="'https://lobster-app-mv2hv.ondigitalocean.app/assets/'+slotProps.item.directus_files_id" :alt="'image'" style="display: block" />
-            </template>
+      <div v-if="article[0]?.gallery && article[0]?.gallery?.length > 0" class="flex justify-content-center mt-10">
+        <Galleria v-model:activeIndex="activeIndex" v-model:visible="displayCustom" :value="article[0].gallery"
+          :responsiveOptions="responsiveOptions" :numVisible="7" containerStyle="max-width: 850px" :circular="true"
+          :fullScreen="true" :showItemNavigators="true" :showThumbnails="false">
+          <template #item="slotProps">
+            <img :src="'https://lobster-app-mv2hv.ondigitalocean.app/assets/' + slotProps.item.directus_files_id"
+              :alt="'image'" style="width: 100%; max-height: 600px; display: block" />
+          </template>
+          <template #thumbnail="slotProps">
+            <img :src="'https://lobster-app-mv2hv.ondigitalocean.app/assets/' + slotProps.item.directus_files_id"
+              :alt="'image'" style="display: block" />
+          </template>
         </Galleria>
 
-        <div v-if="article[0].gallery" class="grid grid-cols-4 gap-2" style="max-width: 400px">
-            <div v-for="(image, index) of article[0].gallery" :key="index" class="col-span-1">
-                <img :src="'https://lobster-app-mv2hv.ondigitalocean.app/assets/' + image.directus_files_id" :alt="'image'" style="cursor: pointer" @click="imageClick(index)" />
+        <ul v-if="article[0].gallery" role="list" class="grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-3 sm:gap-x-6 lg:grid-cols-3 xl:gap-x-8">
+          <li v-for="(image, index) of article[0].gallery" :key="index" class="relative">
+            <div @click="imageClick(index)"
+              class="group flex justify-center w-auto h-30 overflow-hidden rounded-lg bg-gray-white focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2 focus-within:ring-offset-gray-100">
+              <img :src="'https://lobster-app-mv2hv.ondigitalocean.app/assets/' + image.directus_files_id" alt="" class="pointer-events-none object-cover w-fit h-44 group-hover:opacity-75 p-1 rounded-xl" />
+              <button type="button" class="absolute inset-0 focus:outline-none">
+                <span class="sr-only">View details</span>
+              </button>
             </div>
-        </div>
-    </div>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </template>
@@ -59,10 +69,9 @@ const responsiveOptions = ref([
 const displayCustom = ref(false);
 
 const imageClick = (index) => {
-    activeIndex.value = index;
-    displayCustom.value = true;
+  activeIndex.value = index;
+  displayCustom.value = true;
 };
 </script>
-<style scoped>
-</style>
+<style scoped></style>
 
