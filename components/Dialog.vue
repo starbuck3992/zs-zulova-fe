@@ -6,7 +6,6 @@
 </template>
 <script setup lang="ts">
 import Dialog from 'primevue/dialog';
-import { ref } from 'vue';
 
 const { $directus, $readItems } = useNuxtApp()
 const { data: dialog } = await useAsyncData('modal', () => {
