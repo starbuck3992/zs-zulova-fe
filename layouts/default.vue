@@ -77,7 +77,7 @@
       <div class="mt-10 flex justify-center space-x-5">
         <a v-for="item in social" :key="item.name" :href="item.href" class="text-gray-400 hover:text-indigo-600">
           <span class="sr-only">{{ item.name }}</span>
-          <component :is="item.icon" class="h-6 w-6" aria-hidden="true" />
+          <!-- <component :is="item.icon" class="h-6 w-6" aria-hidden="true" /> -->
         </a>
       </div>
       <p class="mt-6 text-center text-xs leading-5 text-gray-500">&copy; 2023 ZŠ Žulová, Všechna práva vyhrazena.</p>
@@ -96,12 +96,14 @@ const { data: navigation } = await useAsyncData('navigation', () => {
       'id, title',
       'items.id, items.title, items.url, items.hasChildren, items.openInNewTab',
       'items.page.id, items.page.title, items.page.slug',
-      'items.children.id, items.children.title',
-      'items.children.page.id, items.children.page.title, items.children.page.slug'
+      'items.children.id, items.children.title, items.children.hasChildren',
+      'items.children.page.id, items.children.page.title, items.children.page.slug',
+      'items.children.children.id, items.children.children.title, items.children.children.hasChildren',
+      'items.children.children.page.id, items.children.children.page.title, items.children.children.page.slug',
     ]
   }))
 })
-
+console.log(navigation)
 const social = [
   {
     name: 'Facebook',
