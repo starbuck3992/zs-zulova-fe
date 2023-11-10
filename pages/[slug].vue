@@ -4,6 +4,7 @@
     <div class="mx-auto max-w-7xl px-6 lg:px-8">
       <div class="mx-auto max-w-7-xl lg:mx-0 pt-10">
         <h2 v-if="page && page[0]?.title" class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">{{ page[0]?.title }}</h2>
+        <div class="mt-5" v-html="page[0]?.content"></div>
       </div>
 
       <!-- Articles -->
