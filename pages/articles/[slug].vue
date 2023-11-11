@@ -1,5 +1,4 @@
 <template>
-  <NuxtLink to="/">Zpět na domovskou stránku</NuxtLink>
   <div class="mx-auto max-w-7xl 2xl:max-w-[1500px] px-6 lg:px-8">
     <div v-if="article" class="mx-auto max-w-2xl xl:max-w-5xl pt-10">
       <h2 v-if="article[0]?.title" class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">{{

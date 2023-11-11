@@ -18,7 +18,9 @@
                 <div class="absolute left-full top-0 flex w-16 justify-center pt-5">
                   <button type="button" class="-m-2.5 p-2.5" @click="sidebarOpen = false">
                     <span class="sr-only">Close sidebar</span>
-                    <XMarkIcon class="h-6 w-6 text-white" aria-hidden="true" />
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-white">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
                   </button>
                 </div>
               </TransitionChild>
@@ -63,7 +65,9 @@
     <div class="sticky top-0 z-40 flex items-center gap-x-6 bg-white px-4 py-4 shadow-sm sm:px-6 lg:hidden">
       <button type="button" class="-m-2.5 p-2.5 text-gray-700 lg:hidden" @click="sidebarOpen = true">
         <span class="sr-only">Open sidebar</span>
-        <Bars3Icon class="h-6 w-6" aria-hidden="true" />
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+        </svg>
       </button>
       <div class="flex-1 text-sm font-semibold leading-6 text-gray-900">Základní Škola Žulová</div>
     </div>
@@ -72,9 +76,9 @@
     </main>
 
   </div>
-  <footer class="bg-white relative z-50 w-full mt-20 shadow border-t ">
-    <div class="mx-auto max-w-7xl overflow-hidden px-6 py-10 lg:px-8">
-      <div class="mt-10 flex justify-center space-x-5">
+  <footer class="bg-white relative w-full mt-10 shadow border-t ">
+    <div class="mx-auto max-w-7xl overflow-hidden px-6 py-5 lg:px-8">
+      <div class="flex justify-center space-x-5">
         <a v-for="item in social" :key="item.name" :href="item.href" class="text-gray-400 hover:text-indigo-600">
           <span class="sr-only">{{ item.name }}</span>
           <!-- <component :is="item.icon" class="h-6 w-6" aria-hidden="true" /> -->
@@ -88,6 +92,12 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
 import DynamicMenu from '~/components/DynamicMenu.vue';
+import {
+  Dialog,
+  DialogPanel,
+  TransitionChild,
+  TransitionRoot,
+} from '@headlessui/vue'
 const { $directus, $readItems } = useNuxtApp()
 
 const { data: navigation } = await useAsyncData('navigation', () => {
@@ -96,14 +106,14 @@ const { data: navigation } = await useAsyncData('navigation', () => {
       'id, title',
       'items.id, items.title, items.url, items.hasChildren, items.openInNewTab',
       'items.page.id, items.page.title, items.page.slug',
-      'items.children.id, items.children.title, items.children.hasChildren',
+      'items.children.id, items.children.title, items.children.hasChildren, items.children.openInNewTab, items.children.url',
       'items.children.page.id, items.children.page.title, items.children.page.slug',
-      'items.children.children.id, items.children.children.title, items.children.children.hasChildren',
+      'items.children.children.id, items.children.children.title, items.children.children.hasChildren, items.children.children.openInNewTab, items.children.children.url',
       'items.children.children.page.id, items.children.children.page.title, items.children.children.page.slug',
     ]
   }))
 })
-console.log(navigation)
+
 const social = [
   {
     name: 'Facebook',
