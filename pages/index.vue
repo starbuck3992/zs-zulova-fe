@@ -20,13 +20,12 @@
       </div>
     </div>
   </div>
-  <ArticlePreview :mainPage="true" v-if="articles &&articles?.length > 0" :posts="articles"></ArticlePreview>
+  <ArticlePreview :mainPage="true" v-if="articles && articles?.length > 0" :posts="articles"></ArticlePreview>
 </template>
 
 <script setup lang="ts">
 import { LifebuoyIcon, NewspaperIcon, PhoneIcon } from "@heroicons/vue/20/solid";
 const { $directus, $readItems } = useNuxtApp()
-import { useRoute } from 'vue-router';
 import ArticlePreview from '~/components/ArticlePreview.vue';
 
 const { data: articles } = await useAsyncData('articles', () => {

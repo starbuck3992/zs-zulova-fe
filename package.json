@@ -24,7 +24,7 @@
     "vue-router": "^4.2.5"
   },
   "dependencies": {
-    "@directus/sdk": "^13.0.1",
+    "@directus/sdk": "^13.0.2",
     "@headlessui/vue": "^1.7.16",
     "@heroicons/vue": "^2.0.18"
   }

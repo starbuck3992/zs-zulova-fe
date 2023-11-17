@@ -1,22 +1,31 @@
-import { createDirectus } from '@directus/sdk';
-import { rest, readItem, readItems, readAll } from '@directus/sdk/rest';
 
-interface Page {
+import {createDirectus, rest, readItem, readItems, aggregate} from '@directus/sdk';
+
+type navigation = {
+    title: string;
+    slug: string;
+}
+
+export type IPage = {
     id: number;
     title: string;
     content: string;
+    slug: string;
     articles: number[];
+    gallery: number[];
 }
 
-interface Article {
+type Article = {
     id: number;
     title: string;
     content: string;
-    page: number;
+    slug: string;
+    pages: number;
 }
 
-interface Schema {
-    pages: Page[];
+type Schema = {
+    navigation: navigation[];
+    pages: IPage[];
     articles: Article[];
 }
 
@@ -26,6 +35,6 @@ export default defineNuxtPlugin(() => {
     const directus = createDirectus<Schema>(runtimeConfig.public.apiBase).with(rest());
 
     return {
-        provide: { directus, readItem, readItems },
+        provide: { directus, readItem, readItems, aggregate },
     };
 });

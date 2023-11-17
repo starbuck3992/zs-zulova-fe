@@ -5,11 +5,11 @@ export default defineNuxtConfig({
   css: ['primevue/resources/themes/lara-light-teal/theme.css'],
   runtimeConfig: {
     public: {
-      apiBase: process.env.API_BASE || "http://localhost:8055",
-    },
+        apiBase: process.env.API_BASE || "http://localhost:8055",
+    }
   },
   devtools: { enabled: true },
-  modules: ["@nuxtjs/tailwindcss", "nuxt-primevue",],
+  modules: ["@nuxtjs/tailwindcss", "nuxt-primevue"],
   primevue: {
     usePrimeVue: true,
     options: {},

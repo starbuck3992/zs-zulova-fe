@@ -11,11 +11,11 @@
           :responsiveOptions="responsiveOptions" :numVisible="7" containerStyle="max-width: 850px" :circular="true"
           :fullScreen="true" :showItemNavigators="true" :showThumbnails="false">
           <template #item="slotProps">
-            <img :src="'https://lobster-app-mv2hv.ondigitalocean.app/assets/' + slotProps.item.directus_files_id"
+            <img :src="config.public.apiBase + 'assets/' + slotProps.item.directus_files_id"
               :alt="'image'" style="width: 100%; max-height: 600px; display: block" />
           </template>
           <template #thumbnail="slotProps">
-            <img :src="'https://lobster-app-mv2hv.ondigitalocean.app/assets/' + slotProps.item.directus_files_id"
+            <img :src="config.public.apiBase + 'assets/' + slotProps.item.directus_files_id"
               :alt="'image'" style="display: block" />
           </template>
         </Galleria>
@@ -24,7 +24,7 @@
           <li v-for="(image, index) of article[0].gallery" :key="index" class="relative">
             <div @click="imageClick(index)"
               class="group flex justify-center w-auto h-30 overflow-hidden rounded-lg bg-gray-white focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2 focus-within:ring-offset-gray-100">
-              <img :src="'https://lobster-app-mv2hv.ondigitalocean.app/assets/' + image.directus_files_id" alt="" class="pointer-events-none object-cover w-fit h-44 group-hover:opacity-75 p-1 rounded-xl" />
+              <img :src="config.public.apiBase + 'assets/' + image.directus_files_id" alt="" class="pointer-events-none object-cover w-fit h-44 group-hover:opacity-75 p-1 rounded-xl" />
               <button type="button" class="absolute inset-0 focus:outline-none">
                 <span class="sr-only">View details</span>
               </button>
@@ -41,6 +41,8 @@ const { $directus, $readItems } = useNuxtApp()
 import { ref } from 'vue'
 import { useRoute } from 'vue-router';
 import Galleria from 'primevue/galleria';
+
+const config = useRuntimeConfig();
 const route = useRoute();
 
 const { data: article } = await useAsyncData('articles', () => {
@@ -67,7 +69,7 @@ const responsiveOptions = ref([
 
 const displayCustom = ref(false);
 
-const imageClick = (index) => {
+const imageClick = (index: number) => {
   activeIndex.value = index;
   displayCustom.value = true;
 };
