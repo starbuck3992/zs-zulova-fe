@@ -24,7 +24,7 @@
 
   <!-- Paginator -->
   <div v-if="Number(articlesCount[0].count) > 0" class="mt-6">
-    <Paginator @page="onChangePage" :rows="pageRows" :totalRecords="Number(articlesCount[0].count)" :rowsPerPageOptions="pageRowsOptions"></Paginator>
+    <Paginator @page="onChangePage" :rows="pageRows" :totalRecords="Number(articlesCount[0].count)"></Paginator>
   </div>
 </template>
 
@@ -35,14 +35,7 @@ const { $directus, $readItems, $aggregate } = useNuxtApp()
 import ArticlePreview from '~/components/ArticlePreview.vue';
 
 const page = ref(0);
-const pageRows = ref(10);
-
-const pageRowsOptions = computed(() => {
-  let options = [];
-  for (let i = 1; i <= 3; i++) {
-    options.push(i * 10);
-  }
-});
+const pageRows = ref(9);
 
 const {data: articlesCount} = await useAsyncData('articlesCount', async () => {
   return $directus.request($aggregate('articles', {
