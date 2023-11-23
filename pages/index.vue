@@ -21,19 +21,51 @@
     </div>
   </div>
   <ArticlePreview :mainPage="true" v-if="articles && articles?.length > 0" :posts="articles"></ArticlePreview>
+
+  <!-- Paginator -->
+  <div v-if="Number(articlesCount[0].count) > 0" class="mt-6">
+    <Paginator @page="onChangePage" :rows="pageRows" :totalRecords="Number(articlesCount[0].count)" :rowsPerPageOptions="pageRowsOptions"></Paginator>
+  </div>
 </template>
 
 <script setup lang="ts">
 import { LifebuoyIcon, NewspaperIcon, PhoneIcon } from "@heroicons/vue/20/solid";
-const { $directus, $readItems } = useNuxtApp()
+import Paginator from 'primevue/paginator';
+const { $directus, $readItems, $aggregate } = useNuxtApp()
 import ArticlePreview from '~/components/ArticlePreview.vue';
 
-const { data: articles } = await useAsyncData('articles', () => {
+const page = ref(0);
+const pageRows = ref(10);
+
+const pageRowsOptions = computed(() => {
+  let options = [];
+  for (let i = 1; i <= 3; i++) {
+    options.push(i * 10);
+  }
+});
+
+const {data: articlesCount} = await useAsyncData('articlesCount', async () => {
+  return $directus.request($aggregate('articles', {
+    aggregate: {
+      count: '*'
+    },
+  }));
+});
+
+const {data: articles, refresh} = await useAsyncData('articles', async () => {
   return $directus.request($readItems('articles', {
-    limit: 6,
+    limit: pageRows.value,
+    offset: page.value * pageRows.value,
     sort: '-date_created',
-  }))
-})
+  }));
+});
+
+const onChangePage = (event: any) => {
+  if (event.page !== page.value) {
+    page.value = event.page;
+    refresh();
+  }
+};
 
 const cards = [
   {
