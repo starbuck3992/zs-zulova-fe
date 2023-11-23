@@ -30,6 +30,16 @@
                   <img class="h-8 w-auto" src="/logo.png" alt="Your Company" />
                 </div>
                 <nav class="flex flex-1 flex-col">
+                  <ul role="list" class="-mx-2 space-y-1">
+                    <li>
+                      <NuxtLink
+                          class="text-gray-700 hover:text-indigo-600 hover:bg-gray-50 group flex rounded-md p-2 pl-0 leading-6 text-sm font-semibold"
+                          to="/"
+                      >
+                        Domů
+                      </NuxtLink>
+                    </li>
+                  </ul>
                   <ul role="list" class="flex flex-1 flex-col gap-y-7">
                     <li>
                       <ul v-if="navigation[0]" role="list" class="-mx-2 space-y-1">
@@ -55,6 +65,16 @@
           </NuxtLink>
         </div>
         <nav class="flex flex-1 flex-col">
+          <ul role="list" class="-mx-2 space-y-1">
+            <li>
+              <NuxtLink
+                  class="text-gray-700 hover:text-indigo-600 hover:bg-gray-50 group flex gap-x-3 rounded-md p-2 leading-6 text-sm font-semibold"
+                  to="/"
+              >
+                Domů
+              </NuxtLink>
+            </li>
+          </ul>
           <ul v-if="navigation[0]" role="list" class="flex flex-1 flex-col gap-y-7">
             <DynamicMenu :menuItems="navigation[0].items" />
           </ul>
