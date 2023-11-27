@@ -6,8 +6,8 @@
           <div
             @click="() => handleMenuItemClick(item)"
             :class="[
-              item.open ? 'bg-gray-50 text-indigo-600' : '',
-              'flex w-full text-gray-700 hover:text-indigo-600 hover:bg-gray-50 group gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold text-left cursor-pointer select-none',
+              item.open ? 'bg-gray-50 text-blue-600' : 'text-white',
+              'flex w-full  hover:text-indigo-600 hover:bg-gray-50 group gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold text-left cursor-pointer select-none',
               { 'router-link-active': isMenuItemActive(item) },
             ]"
           >
@@ -22,7 +22,7 @@
           <transition name="fade">
             <div
               v-show="item.open"
-              class="px-4 pt-2 pb-2 text-sm text-gray-500"
+              class="px-4 pt-2 pb-2 text-sm text-blue-600"
             >
               <DynamicMenu :menuItems="item.children" />
             </div>
@@ -31,7 +31,7 @@
         <template v-else>
           <a
             v-if="item.url && item.page === null"
-            class="text-gray-700 hover:text-indigo-600 hover:bg-gray-50 group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold"
+            class="text-white hover:text-indigo-600 hover:bg-gray-50 group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold"
             :href="`${item.url}`"
             :target="item.openInNewTab ? '_blank' : '_self'"
           >
@@ -40,7 +40,7 @@
           <NuxtLink
             v-else
             @click.native="handleMenuItemClick(item)"
-            class="text-gray-700 hover:text-indigo-600 hover:bg-gray-50 group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold"
+            class="text-white hover:text-indigo-600 hover:bg-gray-50 group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold"
             :to="`/${item.page.slug}`"
             :target="item.openInNewTab ? '_blank' : '_self'"
           >
@@ -134,7 +134,7 @@ watch(router.currentRoute, () => {
 
 <style scoped>
 .router-link-active {
-  @apply bg-gray-50 text-indigo-600;
+  @apply bg-gray-50 text-blue-600;
 }
 
 .fade-enter-active,
