@@ -39,7 +39,18 @@
               :key="card.name"
               class="flex gap-x-4 rounded-xl bg-gray-100 hover:bg-white p-2 ring-1 ring-inset ring-white/10 cursor-pointer"
             >
-              <a :href="card.link">
+              <NuxtLink v-if="card.to" :to="card.to">
+                <component
+                    :is="card.icon"
+                    class="h-7 w-5 flex-none text-blue-600"
+                    aria-hidden="true"
+                />
+                <div class="text-sm 2xl:text-base leading-7">
+                  <h3 class="font-semibold text-black">{{ card.name }}</h3>
+                </div>
+              </NuxtLink>
+
+              <a v-else :href="card.link" :target="card.target">
                 <component
                   :is="card.icon"
                   class="h-7 w-5 flex-none text-blue-600"
@@ -107,6 +118,9 @@ const { data: articles, refresh } = await useAsyncData("articles", async () => {
       limit: pageRows.value,
       offset: page.value * pageRows.value,
       sort: "-date_created",
+      fields: [
+        'id, title, content, slug, thumbnail, date_created, user_created.*',
+      ],
     })
   );
 });
@@ -129,8 +143,6 @@ const { data: carouselImages } = await useAsyncData(
   }
 );
 
-console.log(carouselImages);
-
 const cards = [
   {
     name: "Rozvrh Hodin",
@@ -141,22 +153,24 @@ const cards = [
   {
     name: "Bakaláři",
     icon: LifebuoyIcon,
-    target: "_parent",
+    link: "https://zszulova.bakalari.cz/login",
+    target: "_blank",
   },
   {
     name: "Jídelníček",
     icon: NewspaperIcon,
-    target: "_parent",
+    to: "jidelni-listek",
   },
   {
     name: "Kontakty",
     icon: PhoneIcon,
-    target: "_parent",
+    to: "kontakt",
   },
   {
     name: "Kalendář akcí",
     icon: CalendarIcon,
-    target: "_parent",
+    link: "https://zszulova.bakalari.cz/timetable/public/",
+    target: "_blank",
   },
 ];
 </script>

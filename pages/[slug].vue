@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+    <div v-if="pageData && pageData.length" class="mx-auto max-w-7xl px-6 lg:px-8">
       <div class="mx-auto max-w-7-xl lg:mx-0 pt-10">
         <h2 v-if="pageData && pageData[0]?.title" class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">{{ pageData[0]?.title }}</h2>
         <div class="mt-5" v-html="pageData[0]?.content"></div>
@@ -41,6 +41,9 @@
         <Paginator @page="onChangePage" :rows="pageRows" :totalRecords="Number(articlesCount[0].count)"></Paginator>
       </div>
     </div>
+    <div v-else class="mx-auto max-w-2xl xl:max-w-5xl pt-10">
+      <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Stránka nenalezena</h2>
+    </div>
   </div>
 </template>
 
@@ -71,6 +74,20 @@ const displayCustom = ref(false);
 const page = ref(0);
 const pageRows = ref(10);
 
+const {data: pageData} = await useAsyncData('pages', async () => {
+  return $directus.request($readItems('pages', {
+    filter: {
+      slug: {
+        _eq: route.params.slug
+      },
+    },
+    fields: [
+      'id, title, content, thumbnail',
+      'gallery.directus_files_id, gallery.id',
+    ],
+  }));
+});
+
 const {data: articlesCount} = await useAsyncData('articlesCount', async () => {
   return $directus.request($aggregate('articles', {
     aggregate: {
@@ -90,22 +107,6 @@ const {data: articlesCount} = await useAsyncData('articlesCount', async () => {
   }));
 });
 
-
-const {data: pageData} = await useAsyncData('pages', async () => {
-  return $directus.request($readItems('pages', {
-    filter: {
-      slug: {
-        _eq: route.params.slug
-      },
-    },
-      fields: [
-        'id, title, content, thumbnail',
-        'gallery.directus_files_id, gallery.id',
-      ],
-  }));
-});
-
-
 const {data: articles, refresh} = await useAsyncData('articles', async () => {
   return $directus.request($readItems('articles', {
     filter: {
@@ -124,7 +125,6 @@ const {data: articles, refresh} = await useAsyncData('articles', async () => {
     ],
   }));
 });
-
 
 const onChangePage = (event: any) => {
   if (event.page !== page.value) {

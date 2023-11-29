@@ -1,6 +1,6 @@
 <template>
   <div class="mx-auto max-w-7xl 2xl:max-w-[1500px] px-6 lg:px-8">
-    <div v-if="article" class="mx-auto max-w-2xl xl:max-w-5xl pt-10">
+    <div v-if="article && article.length" class="mx-auto max-w-2xl xl:max-w-5xl pt-10">
       <h2 v-if="article[0]?.title" class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">{{
         article[0]?.title }}</h2>
       <div class="mt-5" v-if="article[0]?.content" v-html="article[0].content">
@@ -32,6 +32,9 @@
           </li>
         </ul>
       </div>
+    </div>
+    <div v-else class="mx-auto max-w-2xl xl:max-w-5xl pt-10">
+      <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Článek nenalezen</h2>
     </div>
   </div>
 </template>
