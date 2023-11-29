@@ -1,12 +1,12 @@
 <template>
   <div
-    class="relative isolate overflow-hidden bg-gray-900 shadow-lg rounded-b-lg lg:h-96"
+    class="relative isolate overflow-hidden bg-gray-900 shadow-lg rounded-b-lg"
   >
     <Carousel
       :value="carouselImages"
       :numVisible="1"
       :numScroll="1"
-      :autoplayInterval="10000"
+      :autoplayInterval="3000"
       circular
       :show-navigators="false"
       :show-indicators="false"
@@ -16,7 +16,7 @@
           :src="
             config.public.apiBase + 'assets/' + slotProps.data.directus_files_id
           "
-          class="absolute h-full lg:h-96 w-full object-cover object-right md:object-center"
+          class="absolute h-full lg:h-96 w-full object-cover md:object-center"
         />
         <div class="mx-auto max-w-7xl px-6 lg:px-8 z-50 relative">
           <div class="mx-auto max-w-2xl lg:mx-0 pt-10">
@@ -32,7 +32,7 @@
             </p>
           </div>
           <div
-            class="mx-auto py-10 lg:py-0 lg:mt-36 grid max-w-2xl grid-cols-1 gap-6 lg:mx-0 lg:max-w-none sm:grid-cols-2 lg:grid-cols-4 lg:gap-8"
+            class="mx-auto py-10 lg:py-0 lg:mt-28 mb-5 grid max-w-2xl grid-cols-1 gap-6 lg:mx-0 lg:max-w-none sm:grid-cols-2 lg:grid-cols-5 lg:gap-8"
           >
             <div
               v-for="card in cards"
@@ -78,6 +78,7 @@ import {
   LifebuoyIcon,
   NewspaperIcon,
   PhoneIcon,
+  CalendarIcon,
 } from "@heroicons/vue/20/solid";
 import Paginator from "primevue/paginator";
 const { $directus, $readItems, $aggregate } = useNuxtApp();
@@ -150,6 +151,11 @@ const cards = [
   {
     name: "Kontakty",
     icon: PhoneIcon,
+    target: "_parent",
+  },
+  {
+    name: "Kalendář akcí",
+    icon: CalendarIcon,
     target: "_parent",
   },
 ];
