@@ -14,13 +14,14 @@
           dateFormat="dd.mm.yy"
           :placeholder="'Vyberte datum'"
           :show-button-bar="false"
+          ref="calendar"
         >
           <template #footer>
             <div class="flex items-center justify-between w-full">
               <div class="py-2">
                 <Button
                   label="Vyčistit"
-                  @click="dates = null"
+                  @click="clear()"
                   class="mr-2"
                   :disabled="pending"
                   severity="secondary"
@@ -29,7 +30,7 @@
               <div class="py-2">
                 <Button
                   label="Vyhledat"
-                  @click="refresh()"
+                  @click="search()"
                   class="mr-2"
                   :disabled="pending"
                   severity="info"
@@ -75,6 +76,20 @@ const route = useRoute();
 const dates = ref();
 const page = ref(0);
 const pageRows = ref(20);
+const calendar = ref();
+
+const clear = () => {
+  dates.value = null;
+  page.value = 0;
+  refresh();
+  calendar.value.overlayVisible = false;
+};
+
+const search = () => {
+  page.value = 0;
+  refresh();
+  calendar.value.overlayVisible = false;
+};
 
 const { data, pending, refresh } = await useAsyncData("articles", async () => {
   const allResponses = await Promise.all([
