@@ -1,7 +1,10 @@
 <template>
   <div class="pt-10 max-w-2xl lg:max-w-5xl mx-auto">
     <h1 class="text-3xl font-semibold text-gray-900 pl-5">Aktuality</h1>
-    <div class="flex items-center gap-2 mt-2 mb-2 max-w-sm px-5">
+    <h4 class="text-gray-900 pl-5 mt-2">
+      Filtrace aktualit dle data vytvoření:
+    </h4>
+    <div class="flex items-center gap-2 mt-1 mb-5 max-w-sm px-5">
       <div class="flex w-full flex-col">
         <Calendar
           id="date"
@@ -9,17 +12,32 @@
           selectionMode="range"
           :manualInput="false"
           dateFormat="dd.mm.yy"
-          showButtonBar
           :placeholder="'Vyberte datum'"
-        />
-      </div>
-      <div class="flex flex-col">
-        <Button
-          label="Vyhledat"
-          severity="info"
-          @click="refresh"
-          :disabled="pending"
-        />
+          :show-button-bar="false"
+        >
+          <template #footer>
+            <div class="flex items-center justify-between w-full">
+              <div class="py-2">
+                <Button
+                  label="Vyčistit"
+                  @click="dates = null"
+                  class="mr-2"
+                  :disabled="pending"
+                  severity="secondary"
+                />
+              </div>
+              <div class="py-2">
+                <Button
+                  label="Vyhledat"
+                  @click="refresh()"
+                  class="mr-2"
+                  :disabled="pending"
+                  severity="info"
+                />
+              </div>
+            </div>
+          </template>
+        </Calendar>
       </div>
     </div>
     <!-- Articles -->
