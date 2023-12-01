@@ -2,7 +2,7 @@
   <div class="pt-10 max-w-2xl lg:max-w-5xl mx-auto">
     <h1 class="text-3xl font-semibold text-gray-900 pl-5">Aktuality</h1>
     <h4 class="text-gray-900 pl-5 mt-2">
-      Filtrace aktualit dle data vytvoření:
+      Filtrace aktualit dle data vytvoření (od - do):
     </h4>
     <div class="flex items-center gap-2 mt-1 mb-5 max-w-sm px-5">
       <div class="flex w-full flex-col">
@@ -49,7 +49,9 @@
 
     <!-- Paginator -->
     <div
-      v-if="data && data.articlesCount && Number(data.articlesCount[0].count) > 0"
+      v-if="
+        data && data.articlesCount && Number(data.articlesCount[0].count) > 0
+      "
       class="mt-6"
     >
       <Paginator
@@ -92,32 +94,34 @@ const search = () => {
 };
 
 const { data, pending, refresh } = await useAsyncData("articles", async () => {
-
   const dateFilter = () => {
     if (dates.value) {
       if (dates.value[0] && dates.value[1]) {
         return {
-          _between: dates.value[0].toISOString().split('T', 1)[0] + "," +  dates.value[1].toISOString().split('T', 1)[0],
-        }
+          _between:
+            dates.value[0].toISOString().split("T", 1)[0] +
+            "," +
+            dates.value[1].toISOString().split("T", 1)[0],
+        };
       } else if (!dates.value[0] && dates.value[1]) {
         return {
-          _lte: dates.value[1].toISOString().split('T', 1)[0],
-        }
+          _lte: dates.value[1].toISOString().split("T", 1)[0],
+        };
       } else if (dates.value[0] && !dates.value[1]) {
         return {
-          _gte: dates.value[0].toISOString().split('T', 1)[0],
-        }
+          _gte: dates.value[0].toISOString().split("T", 1)[0],
+        };
       } else {
         return {
-          _between: '',
-        }
+          _between: "",
+        };
       }
     } else {
       return {
-        _between: '',
-      }
+        _between: "",
+      };
     }
-  }
+  };
 
   const allResponses = await Promise.all([
     $directus.request(
