@@ -1,5 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 const path = require('path');
+import {cs} from './assets/presets/cs.json';
+
 export default defineNuxtConfig({
   ssr: false,
   css: ['primevue/resources/themes/lara-light-teal/theme.css'],
@@ -12,7 +14,9 @@ export default defineNuxtConfig({
   modules: ["@nuxtjs/tailwindcss", "nuxt-primevue"],
   primevue: {
     usePrimeVue: true,
-    options: {},
+    options: {
+      locale: cs
+    },
     importPT: { as: 'MyCustomPreset', from: '@/assets/presets/primevue.ts'},
     cssLayerOrder: "tailwind-base, primevue, tailwind-utilities",
     components: {

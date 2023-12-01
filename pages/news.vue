@@ -43,13 +43,13 @@
     </div>
     <!-- Articles -->
     <NewsPreview
-      v-if="data.articles && data.articles.length > 0"
+      v-if="data && data.articles && data.articles.length > 0"
       :posts="data.articles"
     ></NewsPreview>
 
     <!-- Paginator -->
     <div
-      v-if="data.articlesCount && Number(data.articlesCount[0].count) > 0"
+      v-if="data && data.articlesCount && Number(data.articlesCount[0].count) > 0"
       class="mt-6"
     >
       <Paginator
@@ -91,7 +91,38 @@ const search = () => {
   calendar.value.overlayVisible = false;
 };
 
+const firstDay = '1990-01-01T23:00:00.000Z';
+const lastDay = '2100-01-01T23:00:00.000Z';
+
 const { data, pending, refresh } = await useAsyncData("articles", async () => {
+
+  const dateFilter = () => {
+    if (dates.value) {
+      if (data.value[0] && data.value[1]) {
+        return {
+          _between: dates.value[0].toISOString() + "," +  dates.value[1].toISOString(),
+        }
+      } else if (!dates.value[0] && dates.value[1]) {
+        return {
+          _lte: dates.value[1].toISOString(),
+        }
+      } else if (dates.value[0] && !dates.value[1]) {
+        return {
+          _gte: dates.value[0].toISOString(),
+        }
+      } else {
+        return {
+          _between: '',
+        }
+      }
+    } else {
+      return {
+        _between: '',
+      }
+    }
+  }
+
+
   const allResponses = await Promise.all([
     $directus.request(
       $aggregate("articles", {
@@ -100,13 +131,7 @@ const { data, pending, refresh } = await useAsyncData("articles", async () => {
         },
         query: {
           filter: {
-            date_created: {
-              _between: dates.value
-                ? dates.value[0].toISOString() +
-                  "," +
-                  dates.value[1].toISOString()
-                : "",
-            },
+            date_created: dateFilter(),
           },
         },
       })
@@ -114,13 +139,7 @@ const { data, pending, refresh } = await useAsyncData("articles", async () => {
     $directus.request(
       $readItems("articles", {
         filter: {
-          date_created: {
-            _between: dates.value
-              ? dates.value[0].toISOString() +
-                "," +
-                dates.value[1].toISOString()
-              : "",
-          },
+          date_created: dateFilter(),
         },
         limit: pageRows.value,
         offset: page.value * pageRows.value,
