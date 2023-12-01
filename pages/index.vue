@@ -37,20 +37,20 @@
             <div
               v-for="card in cards"
               :key="card.name"
-              class="flex gap-x-4 rounded-xl bg-gray-100 hover:bg-white p-2 ring-1 ring-inset ring-white/10 cursor-pointer"
+              class="flex gap-x-4 rounded-xl bg-gray-100 hover:bg-white p-2 ring-1 ring-inset ring-white/10 cursor-pointer relative"
             >
-              <NuxtLink v-if="card.to" :to="card.to">
-                <component
-                    :is="card.icon"
-                    class="h-7 w-5 flex-none text-blue-600"
-                    aria-hidden="true"
-                />
-                <div class="text-sm 2xl:text-base leading-7">
-                  <h3 class="font-semibold text-black">{{ card.name }}</h3>
-                </div>
-              </NuxtLink>
-
-              <a v-else :href="card.link" :target="card.target">
+              <NuxtLink
+                v-if="card.to"
+                :to="card.to"
+                class="absolute w-full h-full inset-0"
+              ></NuxtLink>
+              <a
+                v-else
+                :href="card.link"
+                :target="card.target"
+                class="absolute w-full h-full inset-0"
+              ></a>
+              <div>
                 <component
                   :is="card.icon"
                   class="h-7 w-5 flex-none text-blue-600"
@@ -59,7 +59,7 @@
                 <div class="text-sm 2xl:text-base leading-7">
                   <h3 class="font-semibold text-black">{{ card.name }}</h3>
                 </div>
-              </a>
+              </div>
             </div>
           </div>
         </div>
@@ -119,7 +119,7 @@ const { data: articles, refresh } = await useAsyncData("articles", async () => {
       offset: page.value * pageRows.value,
       sort: "-date_created",
       fields: [
-        'id, title, content, slug, thumbnail, date_created, user_created.*',
+        "id, title, content, slug, thumbnail, date_created, user_created.*",
       ],
     })
   );
