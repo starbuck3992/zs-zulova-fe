@@ -12,7 +12,7 @@
           selectionMode="range"
           :manualInput="false"
           dateFormat="dd.mm.yy"
-          :placeholder="'Vyberte datum'"
+          :placeholder="'Vyberte datum: od - do'"
           :show-button-bar="false"
           ref="calendar"
         >
@@ -91,24 +91,21 @@ const search = () => {
   calendar.value.overlayVisible = false;
 };
 
-const firstDay = '1990-01-01T23:00:00.000Z';
-const lastDay = '2100-01-01T23:00:00.000Z';
-
 const { data, pending, refresh } = await useAsyncData("articles", async () => {
 
   const dateFilter = () => {
     if (dates.value) {
-      if (data.value[0] && data.value[1]) {
+      if (dates.value[0] && dates.value[1]) {
         return {
-          _between: dates.value[0].toISOString() + "," +  dates.value[1].toISOString(),
+          _between: dates.value[0].toISOString().split('T', 1)[0] + "," +  dates.value[1].toISOString().split('T', 1)[0],
         }
       } else if (!dates.value[0] && dates.value[1]) {
         return {
-          _lte: dates.value[1].toISOString(),
+          _lte: dates.value[1].toISOString().split('T', 1)[0],
         }
       } else if (dates.value[0] && !dates.value[1]) {
         return {
-          _gte: dates.value[0].toISOString(),
+          _gte: dates.value[0].toISOString().split('T', 1)[0],
         }
       } else {
         return {
@@ -121,7 +118,6 @@ const { data, pending, refresh } = await useAsyncData("articles", async () => {
       }
     }
   }
-
 
   const allResponses = await Promise.all([
     $directus.request(
