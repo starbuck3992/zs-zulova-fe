@@ -39,7 +39,7 @@
             </h3>
             <p
               class="mt-5 line-clamp-3 text-sm leading-6 text-gray-600"
-              v-html="post.content"
+              v-html="post.excerpt"
             ></p>
           </div>
           <div class="relative mt-8 flex items-center gap-x-4">
@@ -100,8 +100,8 @@
               {{ post.title }}
             </h3>
             <p
-              class="mt-5 line-clamp-3 text-sm leading-6 text-gray-600"
-              v-html="post.content"
+              class="mt-5 text-sm leading-6 text-gray-600"
+              v-html="post.excerpt"
             ></p>
           </div>
           <div class="relative mt-8 flex items-center gap-x-4">

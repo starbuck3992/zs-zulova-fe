@@ -121,7 +121,7 @@ const {data: articles, refresh} = await useAsyncData('articles', async () => {
     limit: pageRows.value,
     offset: page.value * pageRows.value,
     fields: [
-      'id, title, content, slug, thumbnail, date_created, user_created.*',
+      'id, title, excerpt, slug, thumbnail, date_created, user_created.*',
     ],
   }));
 });

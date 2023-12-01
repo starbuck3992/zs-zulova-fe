@@ -119,7 +119,7 @@ const { data: articles, refresh } = await useAsyncData("articles", async () => {
       offset: page.value * pageRows.value,
       sort: "-date_created",
       fields: [
-        "id, title, content, slug, thumbnail, date_created, user_created.*",
+        "id, title, excerpt, slug, thumbnail, date_created, user_created.*",
       ],
     })
   );
