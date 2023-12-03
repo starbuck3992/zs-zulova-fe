@@ -1,6 +1,6 @@
 <template>
   <div class="pt-10 max-w-2xl lg:max-w-5xl mx-auto">
-    <h1 class="text-3xl font-semibold text-gray-900 pl-5">Aktuality</h1>
+    <h1 class="text-3xl font-semibold text-[#004b9b] pl-5">Aktuality</h1>
     <h4 class="text-gray-900 pl-5 mt-2">
       Filtrace aktualit dle data vytvoření (od - do):
     </h4>

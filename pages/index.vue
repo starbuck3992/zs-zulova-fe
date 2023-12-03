@@ -1,12 +1,5 @@
 <template>
   <div class="relative">
-    <div class="bg-[#004b9b]">
-      <h2
-        class="text-4xl hidden lg:block font-bold tracking-tight text-white sm:text-4xl uppercase py-8 pl-10"
-      >
-        ZŠ ŽULOVÁ - Škola pro všechny
-      </h2>
-    </div>
     <CustomCarousel
       :value="carouselImages"
       :numVisible="1"
@@ -17,13 +10,25 @@
       :show-indicators="false"
     >
       <template #item="slotProps">
+        <div
+          class="z-20 min-w-max max-w-screen-sm absolute top-10 ml-10 rounded"
+        >
+          <div
+            class="bg-[#004b9b] w-full h-full absolute opacity-90 -z-10 rounded"
+          ></div>
+          <h2
+            class="text-4xl z-20 hidden w-full lg:block font-bold tracking-tight text-white sm:text-4xl uppercase py-8 px-8"
+          >
+            ZŠ ŽULOVÁ - Škola pro všechny
+          </h2>
+        </div>
         <img
           :src="
             config.public.apiBase + 'assets/' + slotProps.data.directus_files_id
           "
-          class="absolute h-full lg:h-80 w-full object-cover md:object-center"
+          class="absolute h-full lg:h-96 w-full object-cover md:object-center"
         />
-        <div class="mx-auto max-w-7xl px-6 lg:px-8 z-50 lg:h-80 relative">
+        <div class="mx-auto max-w-7xl px-6 lg:px-8 z-10 lg:h-96 relative">
           <div class="mx-auto max-w-2xl lg:mx-0 pt-10"></div>
           <div
             class="mx-auto py-10 lg:py-0 lg:mt-44 mb-5 grid max-w-2xl grid-cols-1 gap-6 lg:mx-0 lg:max-w-none sm:grid-cols-2 lg:grid-cols-5 lg:gap-8"
