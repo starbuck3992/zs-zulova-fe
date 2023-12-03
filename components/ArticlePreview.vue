@@ -1,5 +1,5 @@
 <template>
-  <div v-if="!mainPage" class="border-t border-gray-200 mt-5"></div>
+  <div v-if="!mainPage" class="border-t border-[#004b9b] mt-5"></div>
 
   <!-- From Main Pages -->
   <div
@@ -10,16 +10,16 @@
       <NuxtLink
         v-if="post.slug"
         :to="`/articles/${post.slug}`"
-        class="flex flex-col items-start shadow shadow-slate-400 rounded-2xl"
+        class="flex flex-col items-start shadow shadow-slate-300 bg-white rounded-lg"
       >
         <div class="relative w-full">
           <img
             :src="config.public.apiBase + 'assets/' + post.thumbnail"
             alt=""
-            class="aspect-[16/9] w-full rounded-2xl rounded-b-none bg-gray-100 object-cover sm:aspect-[2/1] lg:aspect-[3/2]"
+            class="aspect-[16/9] w-full rounded-lg rounded-b-none bg-gray-100 object-cover sm:aspect-[2/1] lg:aspect-[3/2]"
           />
           <div
-            class="absolute inset-0 rounded-2xl rounded-b-none ring-1 ring-inset ring-gray-900/10"
+            class="absolute inset-0 rounded-lg rounded-b-none ring-1 ring-inset ring-gray-900/10"
           />
         </div>
         <div class="max-w-xl p-4 pt-0">
@@ -30,11 +30,9 @@
               >{{ formatDate(post.date_created) }}</time
             >
           </div>
-          <div class="group relative">
-            <h3
-              class="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600"
-            >
-              <span class="absolute inset-0"></span>
+          <div class="relative">
+            <h3 class="mt-3 text-lg font-semibold leading-6 text-[#004b9b]">
+              <span class="absolute inset-0 text-[#004b9b]"></span>
               {{ post.title }}
             </h3>
             <p
@@ -72,16 +70,16 @@
       <NuxtLink
         v-if="post.slug"
         :to="`/articles/${post.slug}`"
-        class="flex flex-col items-start shadow rounded-2xl"
+        class="flex flex-col items-start shadow shadow-slate-300 bg-white rounded-lg"
       >
         <div class="relative w-full">
           <img
             :src="config.public.apiBase + 'assets/' + post.thumbnail"
             alt=""
-            class="aspect-[16/9] w-full rounded-2xl rounded-b-none bg-gray-100 object-cover sm:aspect-[2/1] lg:aspect-[3/2]"
+            class="aspect-[16/9] w-full rounded-lg rounded-b-none bg-gray-100 object-cover sm:aspect-[2/1] lg:aspect-[3/2]"
           />
           <div
-            class="absolute inset-0 rounded-2xl rounded-b-none ring-1 ring-inset ring-gray-900/10"
+            class="absolute inset-0 rounded-lg rounded-b-none ring-1 ring-inset ring-gray-900/10"
           />
         </div>
         <div class="max-w-xl p-4 pt-0">
@@ -92,10 +90,8 @@
               >{{ formatDate(post.date_created) }}</time
             >
           </div>
-          <div class="group relative">
-            <h3
-              class="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600"
-            >
+          <div class="relative">
+            <h3 class="mt-3 text-lg font-semibold leading-6 text-[#004b9b]">
               <span class="absolute inset-0"></span>
               {{ post.title }}
             </h3>

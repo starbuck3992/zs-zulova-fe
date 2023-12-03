@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen bg-white">
+  <div class="min-h-screen bg-[#e0f2ff]">
     <TransitionRoot as="template" :show="sidebarOpen">
       <Dialog
         as="div"
@@ -66,7 +66,7 @@
               </TransitionChild>
               <!-- Sidebar component, swap this element with another sidebar if you like -->
               <div
-                class="flex grow flex-col gap-y-5 overflow-y-auto bg-blue-600 px-6 pb-2"
+                class="flex grow flex-col gap-y-5 overflow-y-auto bg-[#004b9b] px-6 pb-2"
               >
                 <div class="flex items-center mt-4">
                   <div class="flex h-20 -ml-2 shrink-0 items-center rounded-lg">
@@ -80,7 +80,7 @@
                     class="rounded-full bg-white w-7 h-7 flex items-center justify-start ml-2"
                   >
                     <a
-                      class="p-2 text-blue-600 hover:text-blue-200 mx-auto text-center block w-fit"
+                      class="p-2 text-[#004b9b] hover:text-blue-200 mx-auto text-center block w-fit"
                       aria-label="Visit TrendyMinds Facebook"
                       href="https://www.facebook.com/ZakladniSkolaZulova"
                       target="_blank"
@@ -100,7 +100,7 @@
                     class="rounded-full bg-white w-7 h-7 flex items-center justify-center ml-2"
                   >
                     <a
-                      class="p-2 text-blue-600 hover:text-blue-200 mx-auto text-center block w-fit"
+                      class="p-2 text-[#004b9b] hover:text-blue-200 mx-auto text-center block w-fit"
                       aria-label="Visit TrendyMinds Instagram"
                       href="https://www.instagram.com/zs_zulova/?utm_source=ig_web_button_share_sheet&igshid=OGQ5ZDc2ODk2ZA=="
                       target="_blank"
@@ -142,9 +142,7 @@
       class="hidden lg:fixed lg:inset-y-0 lg:z-50 lg:flex lg:w-72 lg:flex-col"
     >
       <!-- Sidebar component, swap this element with another sidebar if you like -->
-      <div
-        class="flex grow flex-col gap-y-5 overflow-y-auto border-r border-blue-900 bg-blue-600 px-6"
-      >
+      <div class="flex grow flex-col gap-y-5 overflow-y-auto bg-[#004b9b] px-6">
         <div class="flex h-40 shrink-0 items-center mt-2 mb-2">
           <NuxtLink to="/">
             <img
@@ -160,7 +158,7 @@
               class="rounded-full bg-white w-7 h-7 flex items-center justify-center mx-auto"
             >
               <a
-                class="p-2 text-blue-600 hover:text-blue-200 mx-auto text-center block w-fit"
+                class="p-2 text-[#004b9b] hover:text-blue-200 mx-auto text-center block w-fit"
                 aria-label="Visit TrendyMinds Facebook"
                 href="https://www.facebook.com/ZakladniSkolaZulova"
                 target="_blank"
@@ -180,7 +178,7 @@
               class="rounded-full bg-white w-7 h-7 flex items-center justify-center mx-auto mt-5"
             >
               <a
-                class="p-2 text-blue-600 hover:text-blue-200 mx-auto text-center block w-fit"
+                class="p-2 text-[#004b9b] hover:text-blue-200 mx-auto text-center block w-fit"
                 aria-label="Visit TrendyMinds Instagram"
                 href="https://www.instagram.com/zs_zulova/?utm_source=ig_web_button_share_sheet&igshid=OGQ5ZDc2ODk2ZA=="
                 target="_blank"
@@ -211,7 +209,7 @@
     </div>
 
     <div
-      class="sticky top-0 z-40 flex items-center gap-x-6 bg-blue-600 px-4 py-4 shadow-sm sm:px-6 lg:hidden"
+      class="sticky top-0 z-40 flex items-center gap-x-6 bg-[#004b9b] px-4 py-4 shadow-sm sm:px-6 lg:hidden"
     >
       <button
         type="button"
@@ -235,14 +233,14 @@
         </svg>
       </button>
       <div class="flex-1 text-sm font-semibold leading-6 text-white">
-        Základní Škola Žulová
+        ZŠ Žulová - Škola pro všechny
       </div>
     </div>
     <main class="lg:pl-72">
       <slot></slot>
     </main>
   </div>
-  <footer class="bg-blue-600 relative w-full mt-10 shadow border-t">
+  <footer class="bg-[#004b9b] relative w-full mt-10 shadow border-t">
     <div class="mx-auto max-w-7xl overflow-hidden px-6 py-3 lg:px-8">
       <div class="flex text-white justify-center space-x-5">
         <a

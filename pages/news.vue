@@ -15,6 +15,15 @@
           :placeholder="'Vyberte datum: od - do'"
           :show-button-bar="false"
           ref="calendar"
+          :pt-options="{ mergeProps: true }"
+          :pt="{
+            input: {
+              class: [
+                'font-sans text-base text-gray-600 !dark:text-gray-600 bg-white !dark:bg-white p-3 border border-gray-300 dark:border-blue-900/40 transition-colors duration-200 appearance-none rounded-lg',
+                'hover:border-blue-500', //Hover
+              ],
+            },
+          }"
         >
           <template #footer>
             <div class="flex items-center justify-between w-full">
@@ -34,6 +43,14 @@
                   class="mr-2"
                   :disabled="pending"
                   severity="info"
+                  :pt-options="{ mergeProps: true }"
+                  :pt="{
+                    root: ({ props, context }) => ({
+                      class: [
+                        '!bg-[#004b9b]', // Dark Mode
+                      ],
+                    }),
+                  }"
                 />
               </div>
             </div>
@@ -58,6 +75,16 @@
         @page="onChangePage"
         :rows="pageRows"
         :totalRecords="Number(data.articlesCount[0].count)"
+        :pt-options="{ mergeProps: true }"
+        :pt="{
+          root: {
+            class: [
+              'flex items-center justify-center flex-wrap',
+              '!bg-[#e0f2ff] text-gray-500 border-0 px-4 py-2 !rounded-none',
+              'dark:bg-gray-900 dark:text-white/60 dark:border-blue-900/40', // Dark Mode
+            ],
+          },
+        }"
       ></Paginator>
     </div>
   </div>

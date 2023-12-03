@@ -1,12 +1,17 @@
 <template>
-  <div
-    class="relative isolate overflow-hidden bg-gray-900 shadow-lg rounded-b-lg"
-  >
-    <Carousel
+  <div class="relative">
+    <div class="bg-[#004b9b]">
+      <h2
+        class="text-4xl hidden lg:block font-bold tracking-tight text-white sm:text-4xl uppercase py-8 pl-10"
+      >
+        ZŠ ŽULOVÁ - Škola pro všechny
+      </h2>
+    </div>
+    <CustomCarousel
       :value="carouselImages"
       :numVisible="1"
       :numScroll="1"
-      :autoplayInterval="3000"
+      :autoplayInterval="8000"
       circular
       :show-navigators="false"
       :show-indicators="false"
@@ -16,28 +21,17 @@
           :src="
             config.public.apiBase + 'assets/' + slotProps.data.directus_files_id
           "
-          class="absolute h-full lg:h-96 w-full object-cover md:object-center"
+          class="absolute h-full lg:h-80 w-full object-cover md:object-center"
         />
-        <div class="mx-auto max-w-7xl px-6 lg:px-8 z-50 relative">
-          <div class="mx-auto max-w-2xl lg:mx-0 pt-10">
-            <h2
-              class="text-4xl font-bold tracking-tight text-white sm:text-6xl uppercase"
-            >
-              ZŠ ŽULOVÁ
-            </h2>
-            <p
-              class="mt-3 text-lg sm:text-3xl leading-8 text-white font-bold uppercase"
-            >
-              Škola pro všechny
-            </p>
-          </div>
+        <div class="mx-auto max-w-7xl px-6 lg:px-8 z-50 lg:h-80 relative">
+          <div class="mx-auto max-w-2xl lg:mx-0 pt-10"></div>
           <div
-            class="mx-auto py-10 lg:py-0 lg:mt-28 mb-5 grid max-w-2xl grid-cols-1 gap-6 lg:mx-0 lg:max-w-none sm:grid-cols-2 lg:grid-cols-5 lg:gap-8"
+            class="mx-auto py-10 lg:py-0 lg:mt-44 mb-5 grid max-w-2xl grid-cols-1 gap-6 lg:mx-0 lg:max-w-none sm:grid-cols-2 lg:grid-cols-5 lg:gap-8"
           >
             <div
               v-for="card in cards"
               :key="card.name"
-              class="flex gap-x-4 rounded-xl bg-gray-100 hover:bg-white p-2 ring-1 ring-inset ring-white/10 cursor-pointer relative"
+              class="flex gap-x-4 rounded-xl bg-white hover:bg-gray-100 p-2 ring-1 ring-inset ring-white/10 cursor-pointer relative w-[200px] mx-auto sm:m-0 sm:w-auto"
             >
               <NuxtLink
                 v-if="card.to"
@@ -50,21 +44,21 @@
                 :target="card.target"
                 class="absolute w-full h-full inset-0"
               ></a>
-              <div>
+              <div class="flex lg:block gap-x-2 items-center flex-wrap">
                 <component
                   :is="card.icon"
-                  class="h-7 w-5 flex-none text-blue-600"
+                  class="h-7 w-5 flex-none text-[#004b9b]"
                   aria-hidden="true"
                 />
                 <div class="text-sm 2xl:text-base leading-7">
-                  <h3 class="font-semibold text-black">{{ card.name }}</h3>
+                  <h3 class="font-semibold text-[#004b9b]">{{ card.name }}</h3>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </template>
-    </Carousel>
+    </CustomCarousel>
   </div>
 
   <ArticlePreview
@@ -79,6 +73,16 @@
       @page="onChangePage"
       :rows="pageRows"
       :totalRecords="Number(articlesCount[0].count)"
+      :pt-options="{ mergeProps: true }"
+      :pt="{
+        root: {
+          class: [
+            'flex items-center justify-center flex-wrap',
+            '!bg-[#e0f2ff] text-gray-500 border-0 px-4 py-2 !rounded-none',
+            'dark:bg-gray-900 dark:text-white/60 dark:border-blue-900/40', // Dark Mode
+          ],
+        },
+      }"
     ></Paginator>
   </div>
 </template>
@@ -94,6 +98,24 @@ import {
 import Paginator from "primevue/paginator";
 const { $directus, $readItems, $aggregate } = useNuxtApp();
 import ArticlePreview from "~/components/ArticlePreview.vue";
+
+const CustomCarousel = {
+  extends: Carousel,
+  props: {
+    value: Array,
+    numVisible: Number,
+    numScroll: Number,
+    autoplayInterval: Number,
+    showNavigators: Boolean,
+    showIndicators: Boolean,
+    responsiveOptions: Array,
+  },
+  methods: {
+    onTouchMove() {
+      return;
+    },
+  },
+};
 
 const config = useRuntimeConfig();
 const page = ref(0);
@@ -174,3 +196,8 @@ const cards = [
   },
 ];
 </script>
+<style lang="css" scoped>
+.shadow-text {
+  text-shadow: 2px 2px 0.5px #004b9b;
+}
+</style>
