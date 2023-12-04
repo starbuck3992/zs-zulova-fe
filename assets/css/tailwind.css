@@ -1,15 +1,18 @@
 /* tailwind.css */
 @layer tailwind-base {
-    @tailwind base;
+  @tailwind base;
 }
-  
+
 @layer tailwind-utilities {
-    @tailwind components;
-    @tailwind utilities;
+  @tailwind components;
+  @tailwind utilities;
 }
 
 @layer components {
-    p{
-        @apply mt-1
-    }
+  p {
+    @apply mt-1;
+  }
+  body {
+    @apply bg-[#004b9b];
+  }
 }

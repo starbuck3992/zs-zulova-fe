@@ -1,9 +1,12 @@
 <template>
-  <ul role="list" class="divide-y divide-gray-100 px-5">
+  <ul role="list" class="divide-y divide-gray-100 rounded px-5">
     <li
-      v-for="post in posts"
+      v-for="(post, index) in posts"
       :key="post.id"
-      class="flex justify-start gap-x-6 py-2 max-w-2xl lg:max-w-5xl mx-auto"
+      :class="[
+        index % 2 === 0 ? 'bg-white' : 'bg-gray-100',
+        'flex justify-start gap-x-6 py-2 max-w-2xl lg:max-w-5xl mx-auto px-5 cursor-pointer first:rounded-t last:rounded-b',
+      ]"
     >
       <NuxtLink v-if="post.slug" :to="`/articles/${post.slug}`">
         <div class="flex min-w-0 gap-x-4">
@@ -13,7 +16,7 @@
             alt=""
           />
           <div class="min-w-0 flex-auto">
-            <p class="text-sm font-semibold leading-6 text-gray-900">
+            <p class="text-sm font-semibold leading-6 text-[#004b9b]">
               {{ post.title }}
             </p>
             <p class="mt-1 truncate text-xs leading-5 text-gray-500">

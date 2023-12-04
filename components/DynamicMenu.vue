@@ -6,8 +6,8 @@
           <div
             @click="() => handleMenuItemClick(item)"
             :class="[
-              item.open ? 'bg-gray-50 text-blue-600' : 'text-white',
-              'flex w-full  hover:text-indigo-600 hover:bg-gray-50 group gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold text-left cursor-pointer select-none',
+              item.open ? 'bg-white text-[#004b9b]' : 'text-white',
+              'flex w-full  hover:text-[#004b9b] hover:bg-white group gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold text-left cursor-pointer select-none',
               { 'router-link-active': isMenuItemActive(item) },
             ]"
           >
@@ -22,7 +22,7 @@
           <transition name="fade">
             <div
               v-show="item.open"
-              class="px-4 pt-2 pb-2 text-sm text-blue-600"
+              class="px-4 pt-2 pb-2 text-sm text-[#004b9b]"
             >
               <DynamicMenu :menuItems="item.children" />
             </div>
@@ -30,33 +30,35 @@
         </div>
         <template v-else>
           <NuxtLink
-              v-if="item.url === 'HOME'"
-              @click.native="handleMenuItemClick(item)"
-              class="text-white hover:text-indigo-600 hover:bg-gray-50 group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold"
-              to="/"
+            v-if="item.url === 'HOME'"
+            @click.native="handleMenuItemClick(item)"
+            class="text-white hover:text-[#004b9b] hover:bg-white group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold"
+            to="/"
           >
             {{ item.title }}
           </NuxtLink>
           <NuxtLink
-              v-else-if="item.url === 'NEWS'"
-              @click.native="handleMenuItemClick(item)"
-              class="text-white hover:text-indigo-600 hover:bg-gray-50 group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold"
-              to="/news"
+            v-else-if="item.url === 'NEWS'"
+            @click.native="handleMenuItemClick(item)"
+            class="text-white hover:text-[#004b9b] hover:bg-white group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold"
+            to="/news"
           >
             {{ item.title }}
           </NuxtLink>
           <NuxtLink
-              v-else-if="item.page !== null && (item.url !== 'HOME' || item.url !== 'NEWS')"
-              @click.native="handleMenuItemClick(item)"
-              class="text-white hover:text-indigo-600 hover:bg-gray-50 group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold"
-              :to="`/${item.page.slug}`"
-              :target="item.openInNewTab ? '_blank' : '_self'"
+            v-else-if="
+              item.page !== null && (item.url !== 'HOME' || item.url !== 'NEWS')
+            "
+            @click.native="handleMenuItemClick(item)"
+            class="text-white hover:text-[#004b9b] hover:bg-white group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold"
+            :to="`/${item.page.slug}`"
+            :target="item.openInNewTab ? '_blank' : '_self'"
           >
             {{ item.title }}
           </NuxtLink>
           <a
-           v-else
-            class="text-white hover:text-indigo-600 hover:bg-gray-50 group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold"
+            v-else
+            class="text-white hover:text-[#004b9b] hover:bg-white group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold"
             :href="`${item.url}`"
             :target="item.openInNewTab ? '_blank' : '_self'"
           >
@@ -150,7 +152,7 @@ watch(router.currentRoute, () => {
 
 <style scoped>
 .router-link-active {
-  @apply bg-gray-50 text-blue-600;
+  @apply bg-white text-[#004b9b];
 }
 
 .fade-enter-active,
