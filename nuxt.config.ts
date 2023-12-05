@@ -4,7 +4,7 @@ import {cs} from './assets/presets/cs.json';
 
 export default defineNuxtConfig({
   ssr: false,
-  css: ['primevue/resources/themes/lara-light-teal/theme.css'],
+  css: ['primevue/resources/themes/tailwind-light/theme.css'],
   runtimeConfig: {
     public: {
         apiBase: process.env.API_BASE || "http://localhost:8055",
@@ -15,14 +15,14 @@ export default defineNuxtConfig({
   primevue: {
     usePrimeVue: true,
     options: {
-      locale: cs
+      locale: cs,
+      unstyled: false,
     },
-    importPT: { as: 'MyCustomPreset', from: '@/assets/presets/primevue.ts'},
     cssLayerOrder: "tailwind-base, primevue, tailwind-utilities",
     components: {
       prefix: "",
       name: undefined,
-      include: ['Galleria'],
+      include: ['Galleria','Paginator','Dialog','Calendar'],
       exclude: undefined,
     },
     directives: {
