@@ -14,17 +14,17 @@
           :src="
             config.public.apiBase + 'assets/' + slotProps.data.directus_files_id
           "
-          class="absolute h-full lg:h-[400px] w-full object-cover md:object-center"
+          class="absolute h-full lg:h-[400px] w-full object-cover md:object-center rounded"
         />
         <div class="mx-auto lg:h-[400px]"></div>
       </template>
     </CustomCarousel>
     <div class="z-20 min-w-max max-w-screen-sm absolute top-5 right-5 rounded">
       <div
-        class="bg-[#004b9b] w-full h-full absolute opacity-90 -z-10 rounded"
+        class="bg-[#fffdf7] w-full h-full absolute opacity-90 -z-10 rounded"
       ></div>
       <h2
-        class="text-xl z-20 hidden w-full lg:block font-bold tracking-tight text-white sm:text-xl uppercase p-3"
+        class="text-xl z-20 hidden w-full lg:block font-bold tracking-tight text-[#93765d] border-2 border-[#93765d] rounded sm:text-xl uppercase p-3"
       >
         ZŠ ŽULOVÁ - Škola pro všechny
       </h2>
@@ -33,7 +33,7 @@
       <div
         v-for="card in cards"
         :key="card.name"
-        class="flex gap-x-2 xl:gap-x-4 rounded-xl bg-white hover:bg-gray-100 px-4 py-2 ring-1 ring-inset ring-white/10 cursor-pointer relative w-[200px] mx-auto sm:m-0 sm:w-full"
+        class="flex gap-x-2 xl:gap-x-4 rounded-xl bg-white hover:bg-gray-100 border-2 border-[#93765d] shadow px-3 py-2 ring-inset ring-white/10 cursor-pointer relative w-[200px] mx-auto sm:m-0 sm:w-full"
       >
         <NuxtLink
           v-if="card.to"
@@ -49,11 +49,11 @@
         <div class="flex gap-x-1 items-center w-28 xl:w-32">
           <component
             :is="card.icon"
-            class="w-6 text-[#004b9b]"
+            class="w-6 text-[#93765d]"
             aria-hidden="true"
           />
           <div class="text-xs lg:text-xs 2xl:text-sm leading-7 w-full">
-            <h3 class="font-semibold text-[#004b9b]">{{ card.name }}</h3>
+            <h3 class="font-semibold text-[#93765d]">{{ card.name }}</h3>
           </div>
         </div>
       </div>
@@ -77,8 +77,8 @@
         root: {
           class: [
             'flex items-center justify-center flex-wrap',
-            '!bg-[#fffdf7] text-gray-500 border-0 px-4 py-2 !rounded-none',
-            'dark:bg-gray-900 dark:text-white/60 dark:border-blue-900/40', // Dark Mode
+            '!bg-[#fffdf7] text-[#93765d] border-0 px-4 py-2 !rounded-none',
+            'dark:bg-gray-900 dark:text-[#93765d] dark:border-[#93765d]', // Dark Mode
           ],
         },
       }"

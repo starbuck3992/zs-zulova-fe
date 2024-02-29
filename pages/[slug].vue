@@ -7,7 +7,7 @@
       <div class="mx-auto max-w-7-xl lg:mx-0 pt-10">
         <h2
           v-if="pageData && pageData[0]?.title"
-          class="text-3xl font-bold tracking-tight text-[#004b9b] sm:text-4xl"
+          class="text-3xl font-bold tracking-tight text-[#93765d] sm:text-4xl"
         >
           {{ pageData[0]?.title }}
         </h2>
@@ -102,8 +102,8 @@
             root: {
               class: [
                 'flex items-center justify-center flex-wrap',
-                '!bg-[#fffdf7] text-gray-500 border-0 px-4 py-2 !rounded-none',
-                'dark:bg-gray-900 dark:text-white/60 dark:border-blue-900/40', // Dark Mode
+                '!bg-[#fffdf7] text-[#93765d] border-0 px-4 py-2 !rounded-none',
+                'dark:bg-gray-900 dark:text-[#93765d]/60 dark:border-[#93765d]', // Dark Mode
               ],
             },
           }"

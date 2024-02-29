@@ -53,7 +53,7 @@
                       viewBox="0 0 24 24"
                       stroke-width="1.5"
                       stroke="currentColor"
-                      class="w-6 h-6 text-white"
+                      class="w-6 h-6 text-[#93765d]"
                     >
                       <path
                         stroke-linecap="round"
@@ -66,7 +66,7 @@
               </TransitionChild>
               <!-- Sidebar component, swap this element with another sidebar if you like -->
               <div
-                class="flex grow flex-col gap-y-5 overflow-y-auto bg-[#004b9b] px-6 pb-2"
+                class="flex grow flex-col gap-y-5 overflow-y-auto bg-[#fffdf7] px-6 pb-2"
               >
                 <div class="flex items-center mt-4">
                   <div class="flex h-20 -ml-2 shrink-0 items-center rounded-lg">
@@ -80,7 +80,7 @@
                     class="rounded-full bg-white w-7 h-7 flex items-center justify-start ml-2"
                   >
                     <a
-                      class="p-2 text-[#004b9b] hover:text-blue-200 mx-auto text-center block w-fit"
+                      class="p-2 text-[#93765d] hover:text-blue-200 mx-auto text-center block w-fit"
                       aria-label="Visit TrendyMinds Facebook"
                       href="https://www.facebook.com/ZakladniSkolaZulova"
                       target="_blank"
@@ -100,7 +100,7 @@
                     class="rounded-full bg-white w-7 h-7 flex items-center justify-center ml-2"
                   >
                     <a
-                      class="p-2 text-[#004b9b] hover:text-blue-200 mx-auto text-center block w-fit"
+                      class="p-2 text-[#93765d] hover:text-blue-200 mx-auto text-center block w-fit"
                       aria-label="Visit TrendyMinds Instagram"
                       href="https://www.instagram.com/zs_zulova/?utm_source=ig_web_button_share_sheet&igshid=OGQ5ZDc2ODk2ZA=="
                       target="_blank"
@@ -142,23 +142,25 @@
       class="hidden lg:fixed lg:inset-y-0 lg:z-50 lg:flex lg:w-72 lg:flex-col"
     >
       <!-- Sidebar component, swap this element with another sidebar if you like -->
-      <div class="flex grow flex-col gap-y-5 overflow-y-auto bg-[#004b9b] px-6">
+      <div
+        class="flex grow flex-col gap-y-5 overflow-y-auto bg-[#fffbf3] shadow px-6"
+      >
         <div class="flex h-40 shrink-0 items-center mt-2 mb-2">
           <NuxtLink to="/">
             <img
-              class="w-auto h-40 mt-5 rounded-lg"
+              class="w-auto h-40 mt-5 rounded-lg shadow border border-[#93765d]"
               src="/logo.png"
               alt="ZŠ žulová"
             />
           </NuxtLink>
           <div
-            class="flex-1 h-fit justify-center text-center w-full mx-auto text-sm font-semibold leading-6 text-white"
+            class="flex-1 h-fit justify-center text-center w-full mx-auto text-sm font-semibold leading-6 text-[#93765d]"
           >
             <div
-              class="rounded-full bg-white w-7 h-7 flex items-center justify-center mx-auto"
+              class="rounded-full shadow bg-white border border-[#93765d] w-7 h-7 flex items-center justify-center mx-auto"
             >
               <a
-                class="p-2 text-[#004b9b] hover:text-blue-200 mx-auto text-center block w-fit"
+                class="p-2 text-[#93765d] hover:text-[#80634a] mx-auto text-center block w-fit"
                 aria-label="Visit TrendyMinds Facebook"
                 href="https://www.facebook.com/ZakladniSkolaZulova"
                 target="_blank"
@@ -175,10 +177,10 @@
               </a>
             </div>
             <div
-              class="rounded-full bg-white w-7 h-7 flex items-center justify-center mx-auto mt-5"
+              class="rounded-full bg-white border border-[#93765d] w-7 h-7 flex items-center justify-center mx-auto mt-5"
             >
               <a
-                class="p-2 text-[#004b9b] hover:text-blue-200 mx-auto text-center block w-fit"
+                class="p-2 text-[#93765d] hover:text-[#80634a] mx-auto text-center block w-fit"
                 aria-label="Visit TrendyMinds Instagram"
                 href="https://www.instagram.com/zs_zulova/?utm_source=ig_web_button_share_sheet&igshid=OGQ5ZDc2ODk2ZA=="
                 target="_blank"
@@ -209,11 +211,11 @@
     </div>
 
     <div
-      class="sticky top-0 z-40 flex items-center gap-x-6 bg-[#004b9b] px-4 py-4 shadow-sm sm:px-6 lg:hidden"
+      class="sticky top-0 z-40 flex items-center gap-x-6 bg-[#fffdf7] px-4 py-4 shadow-sm sm:px-6 lg:hidden border-b border-[#93765d]"
     >
       <button
         type="button"
-        class="-m-2.5 p-2.5 text-white lg:hidden"
+        class="-m-2.5 p-2.5 text-[#93765d] lg:hidden"
         @click="sidebarOpen = true"
       >
         <span class="sr-only">Open sidebar</span>
@@ -232,7 +234,7 @@
           />
         </svg>
       </button>
-      <div class="flex-1 text-sm font-semibold leading-6 text-white">
+      <div class="flex-1 text-sm font-semibold leading-6 text-[#93765d]">
         ZŠ Žulová - Škola pro všechny
       </div>
     </div>
@@ -240,11 +242,11 @@
       <slot></slot>
     </main>
   </div>
-  <footer class="bg-[#004b9b] relative w-full mt-10 shadow border-t">
+  <footer class="bg-[#fffdf7] relative w-full mt-10 shadow border-t">
     <div class="mx-auto max-w-7xl overflow-hidden px-6 py-3 lg:px-8">
-      <div class="flex text-white justify-center space-x-5">
+      <div class="flex text-[#93765d] justify-center space-x-5">
         <a
-          class="text-white hover:text-blue-200"
+          class="text-[#93765d] hover:text-blue-200"
           aria-label="Visit TrendyMinds Facebook"
           href="https://www.facebook.com/ZakladniSkolaZulova"
           target="_blank"
@@ -260,7 +262,7 @@
           </svg>
         </a>
         <a
-          class="text-white hover:text-blue-200"
+          class="text-[#93765d] hover:text-blue-200"
           aria-label="Visit TrendyMinds Instagram"
           href="https://www.instagram.com/zs_zulova/?utm_source=ig_web_button_share_sheet&igshid=OGQ5ZDc2ODk2ZA=="
           target="_blank"
@@ -276,7 +278,7 @@
           </svg>
         </a>
       </div>
-      <p class="mt-6 text-center text-xs leading-5 text-white">
+      <p class="mt-6 text-center text-xs leading-5 text-[#93765d]">
         &copy; 2023 ZŠ Žulová, Všechna práva vyhrazena.
       </p>
     </div>

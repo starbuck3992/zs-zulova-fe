@@ -6,7 +6,7 @@
     >
       <h2
         v-if="article[0]?.title"
-        class="text-3xl font-bold tracking-tight text-[#004b9b] sm:text-4xl"
+        class="text-3xl font-bold tracking-tight text-[#93765d] sm:text-4xl"
       >
         {{ article[0]?.title }}
       </h2>

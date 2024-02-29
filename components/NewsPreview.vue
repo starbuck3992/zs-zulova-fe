@@ -4,7 +4,7 @@
       v-for="(post, index) in posts"
       :key="post.id"
       :class="[
-        index % 2 === 0 ? 'bg-white' : 'bg-gray-50',
+        index % 2 === 0 ? 'bg-white ' : 'bg-gray-50',
         'flex justify-start gap-x-6 py-2 max-w-2xl lg:max-w-5xl mx-auto px-5 cursor-pointer first:rounded-t last:rounded-b',
       ]"
     >
@@ -16,7 +16,7 @@
             alt=""
           />
           <div class="min-w-0 flex-auto">
-            <p class="text-sm font-semibold leading-6 text-[#004b9b]">
+            <p class="text-sm font-semibold leading-6 text-[#93765d]">
               {{ post.title }}
             </p>
             <p class="mt-1 truncate text-xs leading-5 text-gray-500">

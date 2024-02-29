@@ -1,5 +1,5 @@
 <template>
-  <div v-if="!mainPage" class="border-t border-[#004b9b] mt-5"></div>
+  <div v-if="!mainPage" class="border-t border-[#93765d] mt-5"></div>
 
   <!-- From Main Pages -->
   <div
@@ -10,7 +10,7 @@
       <NuxtLink
         v-if="post.slug"
         :to="`/articles/${post.slug}`"
-        class="flex flex-col items-start shadow bg-white p-3 rounded-lg cursor-pointer"
+        class="flex flex-col items-start shadow-sm bg-white p-3 rounded-lg cursor-pointer shadow-[#93765d]"
       >
         <div class="relative w-full cursor-pointer">
           <img
@@ -29,8 +29,8 @@
             >
           </div>
           <div class="relative">
-            <h3 class="mt-3 text-lg font-semibold leading-6 text-[#004b9b]">
-              <span class="absolute inset-0 text-[#004b9b]"></span>
+            <h3 class="mt-3 text-lg font-semibold leading-6 text-[#93765d]">
+              <span class="absolute inset-0 text-[#93765d]"></span>
               {{ post.title }}
             </h3>
             <p
@@ -85,7 +85,7 @@
             >
           </div>
           <div class="relative">
-            <h3 class="mt-3 text-lg font-semibold leading-6 text-[#004b9b]">
+            <h3 class="mt-3 text-lg font-semibold leading-6 text-[#93765d]">
               <span class="absolute inset-0"></span>
               {{ post.title }}
             </h3>
