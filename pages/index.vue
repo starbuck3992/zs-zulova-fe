@@ -10,60 +10,54 @@
       :show-indicators="false"
     >
       <template #item="slotProps">
-        <div
-          class="z-20 min-w-max max-w-screen-sm absolute top-10 ml-10 rounded"
-        >
-          <div
-            class="bg-[#004b9b] w-full h-full absolute opacity-90 -z-10 rounded"
-          ></div>
-          <h2
-            class="text-4xl z-20 hidden w-full lg:block font-bold tracking-tight text-white sm:text-4xl uppercase py-8 px-8"
-          >
-            ZŠ ŽULOVÁ - Škola pro všechny
-          </h2>
-        </div>
         <img
           :src="
             config.public.apiBase + 'assets/' + slotProps.data.directus_files_id
           "
-          class="absolute h-full lg:h-96 w-full object-cover md:object-center"
+          class="absolute h-full lg:h-[400px] w-full object-cover md:object-center"
         />
-        <div class="mx-auto max-w-7xl px-6 lg:px-8 z-10 lg:h-96 relative">
-          <div class="mx-auto max-w-2xl lg:mx-0 pt-10"></div>
-          <div
-            class="mx-auto py-10 lg:py-0 lg:mt-44 mb-5 grid max-w-2xl grid-cols-1 gap-6 lg:mx-0 lg:max-w-none sm:grid-cols-2 lg:grid-cols-5 lg:gap-8"
-          >
-            <div
-              v-for="card in cards"
-              :key="card.name"
-              class="flex gap-x-4 rounded-xl bg-white hover:bg-gray-100 p-2 ring-1 ring-inset ring-white/10 cursor-pointer relative w-[200px] mx-auto sm:m-0 sm:w-auto"
-            >
-              <NuxtLink
-                v-if="card.to"
-                :to="card.to"
-                class="absolute w-full h-full inset-0"
-              ></NuxtLink>
-              <a
-                v-else
-                :href="card.link"
-                :target="card.target"
-                class="absolute w-full h-full inset-0"
-              ></a>
-              <div class="flex lg:block gap-x-2 items-center flex-wrap">
-                <component
-                  :is="card.icon"
-                  class="h-7 w-5 flex-none text-[#004b9b]"
-                  aria-hidden="true"
-                />
-                <div class="text-sm 2xl:text-base leading-7">
-                  <h3 class="font-semibold text-[#004b9b]">{{ card.name }}</h3>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <div class="mx-auto lg:h-[400px]"></div>
       </template>
     </CustomCarousel>
+    <div class="z-20 min-w-max max-w-screen-sm absolute top-5 right-5 rounded">
+      <div
+        class="bg-[#004b9b] w-full h-full absolute opacity-90 -z-10 rounded"
+      ></div>
+      <h2
+        class="text-xl z-20 hidden w-full lg:block font-bold tracking-tight text-white sm:text-xl uppercase p-3"
+      >
+        ZŠ ŽULOVÁ - Škola pro všechny
+      </h2>
+    </div>
+    <div class="flex gap-2 w-fit absolute bottom-5 -translate-x-1/2 left-1/2">
+      <div
+        v-for="card in cards"
+        :key="card.name"
+        class="flex gap-x-2 xl:gap-x-4 rounded-xl bg-white hover:bg-gray-100 px-4 py-2 ring-1 ring-inset ring-white/10 cursor-pointer relative w-[200px] mx-auto sm:m-0 sm:w-full"
+      >
+        <NuxtLink
+          v-if="card.to"
+          :to="card.to"
+          class="absolute w-full h-full inset-0"
+        ></NuxtLink>
+        <a
+          v-else
+          :href="card.link"
+          :target="card.target"
+          class="absolute w-full h-full inset-0"
+        ></a>
+        <div class="flex gap-x-1 items-center w-28 xl:w-32">
+          <component
+            :is="card.icon"
+            class="w-6 text-[#004b9b]"
+            aria-hidden="true"
+          />
+          <div class="text-xs lg:text-xs 2xl:text-sm leading-7 w-full">
+            <h3 class="font-semibold text-[#004b9b]">{{ card.name }}</h3>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
   <ArticlePreview
@@ -83,7 +77,7 @@
         root: {
           class: [
             'flex items-center justify-center flex-wrap',
-            '!bg-[#e0f2ff] text-gray-500 border-0 px-4 py-2 !rounded-none',
+            '!bg-[#fffdf7] text-gray-500 border-0 px-4 py-2 !rounded-none',
             'dark:bg-gray-900 dark:text-white/60 dark:border-blue-900/40', // Dark Mode
           ],
         },
@@ -124,7 +118,7 @@ const CustomCarousel = {
 
 const config = useRuntimeConfig();
 const page = ref(0);
-const pageRows = ref(9);
+const pageRows = ref(12);
 
 const { data: articlesCount } = await useAsyncData(
   "articlesCount",

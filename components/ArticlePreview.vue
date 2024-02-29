@@ -10,17 +10,15 @@
       <NuxtLink
         v-if="post.slug"
         :to="`/articles/${post.slug}`"
-        class="flex flex-col items-start shadow shadow-slate-300 bg-white rounded-lg"
+        class="flex flex-col items-start shadow bg-white p-3 rounded-lg cursor-pointer"
       >
-        <div class="relative w-full">
+        <div class="relative w-full cursor-pointer">
           <img
             :src="config.public.apiBase + 'assets/' + post.thumbnail"
             alt=""
-            class="aspect-[16/9] w-full rounded-lg rounded-b-none bg-gray-100 object-cover sm:aspect-[2/1] lg:aspect-[3/2]"
+            class="aspect-[16/9] w-full rounded-lg bg-white object-cover sm:aspect-[2/1] lg:aspect-[3/2]"
           />
-          <div
-            class="absolute inset-0 rounded-lg rounded-b-none ring-1 ring-inset ring-gray-900/10"
-          />
+          <div class="absolute inset-0 rounded-lg" />
         </div>
         <div class="max-w-xl p-4 pt-0">
           <div class="mt-8 flex gap-x-4 text-xs">
@@ -40,13 +38,9 @@
               v-html="post.excerpt"
             ></p>
           </div>
-          <div class="relative mt-8 flex items-center gap-x-4">
-            <img
-              src="/user.png"
-              alt=""
-              class="h-10 w-10 rounded-full bg-gray-50"
-            />
-            <div class="text-sm leading-6">
+          <div class="relative mt-8 flex items-center gap-x-2">
+            <img src="/user.png" alt="" class="w-5 rounded-full bg-gray-50" />
+            <div class="text-xs">
               <p class="font-semibold text-gray-900">
                 <span>
                   <span class="absolute inset-0" />

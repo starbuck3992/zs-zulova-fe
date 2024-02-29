@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen bg-[#e0f2ff]">
+  <div class="min-h-screen bg-[#fffdf7]">
     <TransitionRoot as="template" :show="sidebarOpen">
       <Dialog
         as="div"

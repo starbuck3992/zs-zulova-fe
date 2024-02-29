@@ -80,7 +80,7 @@
           root: {
             class: [
               'flex items-center justify-center flex-wrap',
-              '!bg-[#e0f2ff] text-gray-500 border-0 px-4 py-2 !rounded-none',
+              '!bg-[#fffdf7] text-gray-500 border-0 px-4 py-2 !rounded-none',
               'dark:bg-gray-900 dark:text-white/60 dark:border-blue-900/40', // Dark Mode
             ],
           },

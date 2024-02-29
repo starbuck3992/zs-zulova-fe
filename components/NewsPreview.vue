@@ -1,10 +1,10 @@
 <template>
-  <ul role="list" class="divide-y divide-gray-100 rounded px-5">
+  <ul role="list" class="divide-y divide-gray-100 rounded px-5 shadow bg-white">
     <li
       v-for="(post, index) in posts"
       :key="post.id"
       :class="[
-        index % 2 === 0 ? 'bg-white' : 'bg-gray-100',
+        index % 2 === 0 ? 'bg-white' : 'bg-gray-50',
         'flex justify-start gap-x-6 py-2 max-w-2xl lg:max-w-5xl mx-auto px-5 cursor-pointer first:rounded-t last:rounded-b',
       ]"
     >
