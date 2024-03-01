@@ -141,9 +141,9 @@
     <div
       class="hidden lg:fixed lg:inset-y-0 lg:z-50 lg:flex lg:w-72 lg:flex-col"
     >
-      <!-- Sidebar component, swap this element with another sidebar if you like -->
+      <!-- Sidebar component, swap this element with another sidebar if you like //světle modrá - bg-[#f7f9ff] //bezova - bg-[#fff9f7] -->
       <div
-        class="flex grow flex-col gap-y-5 overflow-y-auto bg-[#fffbf3] shadow px-6"
+        class="flex grow flex-col gap-y-5 overflow-y-auto bg-[#f7f9ff] shadow px-6"
       >
         <div class="flex h-40 shrink-0 items-center mt-2 mb-2">
           <NuxtLink to="/">

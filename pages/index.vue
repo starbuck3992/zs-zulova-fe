@@ -21,7 +21,7 @@
     </CustomCarousel>
     <div class="z-20 min-w-max max-w-screen-sm absolute top-5 right-5 rounded">
       <div
-        class="bg-[#fffdf7] w-full h-full absolute opacity-90 -z-10 rounded"
+        class="bg-white w-full h-full absolute opacity-90 -z-10 rounded"
       ></div>
       <h2
         class="text-xl z-20 hidden w-full lg:block font-bold tracking-tight text-[#93765d] border-2 border-[#93765d] rounded sm:text-xl uppercase p-3"
