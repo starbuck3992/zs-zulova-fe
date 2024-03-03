@@ -141,9 +141,9 @@
     <div
       class="hidden lg:fixed lg:inset-y-0 lg:z-50 lg:flex lg:w-72 lg:flex-col"
     >
-      <!-- Sidebar component, swap this element with another sidebar if you like //světle modrá - bg-[#f7f9ff] //bezova - bg-[#fff9f7] -->
+      <!-- Sidebar component, swap this element with another sidebar if you like //světle modrá - bg-[#f7f9ff] //bezova - bg-[#fff9f7] //nebe-v-1 bg-[#4073e0] // nebe-v-2 bg-[#186dd0] //nebe-v-3 bg-[#41a1e0] //nebe-v-4 bg-blue-500 //nebe-v-5 bg-gradient-to-b from-blue-200 to-blue-800 -->
       <div
-        class="flex grow flex-col gap-y-5 overflow-y-auto bg-[#4073e0] shadow px-6"
+        class="flex grow flex-col gap-y-5 overflow-y-auto bg-gradient-to-b from-sky-200 via-sky-400 to-sky-600 shadow px-6"
       >
         <div class="flex h-40 shrink-0 items-center mt-2 mb-2">
           <NuxtLink to="/">
