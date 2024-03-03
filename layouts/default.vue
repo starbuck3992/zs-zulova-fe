@@ -143,24 +143,24 @@
     >
       <!-- Sidebar component, swap this element with another sidebar if you like //světle modrá - bg-[#f7f9ff] //bezova - bg-[#fff9f7] -->
       <div
-        class="flex grow flex-col gap-y-5 overflow-y-auto bg-[#f7f9ff] shadow px-6"
+        class="flex grow flex-col gap-y-5 overflow-y-auto bg-[#4073e0] shadow px-6"
       >
         <div class="flex h-40 shrink-0 items-center mt-2 mb-2">
           <NuxtLink to="/">
             <img
-              class="w-auto h-40 mt-5 rounded-lg shadow border border-[#93765d]"
+              class="w-auto h-40 mt-5 rounded-lg shadow border border-blue-900"
               src="/logo.png"
               alt="ZŠ žulová"
             />
           </NuxtLink>
           <div
-            class="flex-1 h-fit justify-center text-center w-full mx-auto text-sm font-semibold leading-6 text-[#93765d]"
+            class="flex-1 h-fit justify-center text-center w-full mx-auto text-sm font-semibold leading-6 text-blue-700"
           >
             <div
-              class="rounded-full shadow bg-white border border-[#93765d] w-7 h-7 flex items-center justify-center mx-auto"
+              class="rounded-full shadow bg-sky-50 border border-blue-900 w-7 h-7 flex items-center justify-center mx-auto"
             >
               <a
-                class="p-2 text-[#93765d] hover:text-[#80634a] mx-auto text-center block w-fit"
+                class="p-2 text-blue-700 hover:text-blue-800 mx-auto text-center block w-fit"
                 aria-label="Visit TrendyMinds Facebook"
                 href="https://www.facebook.com/ZakladniSkolaZulova"
                 target="_blank"
@@ -177,10 +177,10 @@
               </a>
             </div>
             <div
-              class="rounded-full bg-white border border-[#93765d] w-7 h-7 flex items-center justify-center mx-auto mt-5"
+              class="rounded-full bg-white border border-blue-900 w-7 h-7 flex items-center justify-center mx-auto mt-5"
             >
               <a
-                class="p-2 text-[#93765d] hover:text-[#80634a] mx-auto text-center block w-fit"
+                class="p-2 text-blue-700 hover:text-blue-800 mx-auto text-center block w-fit"
                 aria-label="Visit TrendyMinds Instagram"
                 href="https://www.instagram.com/zs_zulova/?utm_source=ig_web_button_share_sheet&igshid=OGQ5ZDc2ODk2ZA=="
                 target="_blank"

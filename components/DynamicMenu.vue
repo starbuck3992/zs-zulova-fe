@@ -1,15 +1,15 @@
 <template>
   <div>
     <ul role="list" class="-mx-2 space-y-1">
-      <li v-for="item in menuItems" :key="item.id">
+      <li v-for="item in menuItems" :key="item.id" class="pt-[0.5px]">
         <div v-if="item.hasChildren" class="mt-2">
           <div
             @click="() => handleMenuItemClick(item)"
             :class="[
               item.open
-                ? ' bg-[#93765d] text-white shadow-sm'
-                : 'text-black shadow-sm shadow-gray-300',
-              'flex w-full  hover:text-[#93765d] hover:bg-white hover:shadow group gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold text-left cursor-pointer select-none',
+                ? ' bg-white text-black shadow-sm'
+                : 'text-white shadow-sm shadow-blue-900',
+              'flex w-full  hover:text-black hover:bg-white hover:shadow group gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold text-left cursor-pointer select-none',
               { 'router-link-active': isMenuItemActive(item) },
             ]"
           >
@@ -31,7 +31,7 @@
           <NuxtLink
             v-if="item.url === 'HOME'"
             @click.native="handleMenuItemClick(item)"
-            class="text-black hover:text-[#93765d] hover:bg-white hover:shadow group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold shadow-sm shadow-gray-300 my-1"
+            class="text-white hover:text-black hover:bg-white hover:shadow group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold shadow-sm shadow-blue-900 my-1"
             to="/"
           >
             {{ item.title }}
@@ -39,7 +39,7 @@
           <NuxtLink
             v-else-if="item.url === 'NEWS'"
             @click.native="handleMenuItemClick(item)"
-            class="text-black hover:text-[#93765d] hover:bg-white hover:shadow group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold shadow-sm shadow-gray-300 my-1"
+            class="text-white hover:text-black hover:bg-white hover:shadow group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold shadow-sm shadow-blue-900 my-1"
             to="/news"
           >
             {{ item.title }}
@@ -49,7 +49,7 @@
               item.page !== null && (item.url !== 'HOME' || item.url !== 'NEWS')
             "
             @click.native="handleMenuItemClick(item)"
-            class="text-black hover:text-[#93765d] hover:bg-white hover:shadow group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold shadow-sm shadow-gray-300 my-1"
+            class="text-white hover:text-black hover:bg-white hover:shadow group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold shadow-sm shadow-blue-900 my-1"
             :to="`/${item.page.slug}`"
             :target="item.openInNewTab ? '_blank' : '_self'"
           >
@@ -57,7 +57,7 @@
           </NuxtLink>
           <a
             v-else
-            class="text-black hover:text-[#93765d] hover:bg-white group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold shadow-sm shadow-gray-300 my-1"
+            class="text-white hover:text-black hover:bg-white group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold shadow-sm shadow-blue-900 my-1"
             :href="`${item.url}`"
             :target="item.openInNewTab ? '_blank' : '_self'"
           >
@@ -152,7 +152,7 @@ watch(router.currentRoute, () => {
 
 <style scoped>
 .router-link-active {
-  @apply bg-[#93765d] text-white shadow;
+  @apply bg-white text-black shadow;
 }
 
 .fade-enter-active,
