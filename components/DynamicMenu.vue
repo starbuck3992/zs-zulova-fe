@@ -7,9 +7,9 @@
             @click="() => handleMenuItemClick(item)"
             :class="[
               item.open
-                ? ' bg-white text-black shadow-sm'
-                : 'text-white shadow-sm shadow-blue-900',
-              'flex w-full  hover:text-black hover:bg-white hover:shadow group gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold text-left cursor-pointer select-none',
+                ? ' bg-[#93765d] text-white shadow-sm'
+                : 'text-[#414143] shadow-sm shadow-[#93765d]',
+              'flex w-full  hover:text-white hover:bg-[#93765d] hover:shadow group gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold text-left cursor-pointer select-none',
               { 'router-link-active': isMenuItemActive(item) },
             ]"
           >
@@ -31,7 +31,7 @@
           <NuxtLink
             v-if="item.url === 'HOME'"
             @click.native="handleMenuItemClick(item)"
-            class="text-white hover:text-black hover:bg-white hover:shadow group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold shadow-sm shadow-blue-900 my-1"
+            class="text-[#414143] hover:text-white hover:bg-[#93765d] hover:shadow group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold shadow-sm shadow-[#93765d] my-1"
             to="/"
           >
             {{ item.title }}
@@ -39,7 +39,7 @@
           <NuxtLink
             v-else-if="item.url === 'NEWS'"
             @click.native="handleMenuItemClick(item)"
-            class="text-white hover:text-black hover:bg-white hover:shadow group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold shadow-sm shadow-blue-900 my-1"
+            class="text-[#414143] hover:text-white hover:bg-[#93765d] hover:shadow group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold shadow-sm shadow-[#93765d] my-1"
             to="/news"
           >
             {{ item.title }}
@@ -49,7 +49,7 @@
               item.page !== null && (item.url !== 'HOME' || item.url !== 'NEWS')
             "
             @click.native="handleMenuItemClick(item)"
-            class="text-white hover:text-black hover:bg-white hover:shadow group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold shadow-sm shadow-blue-900 my-1"
+            class="text-[#414143] hover:text-white hover:bg-[#93765d] hover:shadow group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold shadow-sm shadow-[#93765d] my-1"
             :to="`/${item.page.slug}`"
             :target="item.openInNewTab ? '_blank' : '_self'"
           >
@@ -57,7 +57,7 @@
           </NuxtLink>
           <a
             v-else
-            class="text-white hover:text-black hover:bg-white group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold shadow-sm shadow-blue-900 my-1"
+            class="text-[#414143] hover:text-white hover:bg-[#93765d] group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold shadow-sm shadow-[#93765d] my-1"
             :href="`${item.url}`"
             :target="item.openInNewTab ? '_blank' : '_self'"
           >
@@ -152,7 +152,7 @@ watch(router.currentRoute, () => {
 
 <style scoped>
 .router-link-active {
-  @apply bg-white text-black shadow;
+  @apply text-white bg-[#93765d] shadow;
 }
 
 .fade-enter-active,
