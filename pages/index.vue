@@ -31,7 +31,7 @@
       <div
         v-for="card in cards"
         :key="card.name"
-        class="flex gap-x-2 xl:gap-x-4 rounded bg-[#fffdf7] hover:opacity-90 shadow px-3 py-2 ring-inset ring-white/10 cursor-pointer relative w-[200px] mx-auto sm:m-0 sm:w-full"
+        class="flex gap-x-2 xl:gap-x-4 rounded bg-[#fffdf7] border-[#e6be1e] border-2 hover:opacity-90 shadow px-3 py-2 ring-inset ring-white/10 cursor-pointer relative w-[200px] mx-auto sm:m-0 sm:w-full"
       >
         <NuxtLink
           v-if="card.to"
