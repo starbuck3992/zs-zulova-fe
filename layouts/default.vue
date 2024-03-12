@@ -64,62 +64,13 @@
               <div
                 class="flex grow flex-col gap-y-5 overflow-y-auto bg-[#fffdf7] shadow px-6 pb-2"
               >
-                <div class="flex items-center mt-4">
-                  <div class="flex h-20 -ml-2 shrink-0 items-center rounded-lg">
-                    <img
-                      class="h-20 w-auto rounded-lg shadow"
-                      src="/logo.png"
-                      alt="Your Company"
-                    />
-                  </div>
-                  <div
-                    class="rounded-full bg-white shadow w-7 h-7 flex items-center justify-start ml-2"
-                  >
-                    <a
-                      class="p-2 text-[#535355] hover:opacity-60 mx-auto text-center block w-fit"
-                      aria-label="Visit TrendyMinds Facebook"
-                      href="https://www.facebook.com/ZakladniSkolaZulova"
-                      target="_blank"
-                      ><svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 320 512"
-                        class="h-5"
-                      >
-                        <path
-                          fill="currentColor"
-                          d="m279.14 288 14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"
-                        ></path>
-                      </svg>
-                    </a>
-                  </div>
-                  <div
-                    class="rounded-full bg-white shadow w-7 h-7 flex items-center justify-center ml-2"
-                  >
-                    <a
-                      class="p-2 text-[#535355] hover:opacity-60 mx-auto text-center block w-fit"
-                      aria-label="Visit TrendyMinds Instagram"
-                      href="https://www.instagram.com/zs_zulova/?utm_source=ig_web_button_share_sheet&igshid=OGQ5ZDc2ODk2ZA=="
-                      target="_blank"
-                      ><svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 448 512"
-                        class="h-5"
-                      >
-                        <path
-                          fill="currentColor"
-                          d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"
-                        ></path>
-                      </svg>
-                    </a>
-                  </div>
-                </div>
                 <nav class="flex flex-1 flex-col">
                   <ul role="list" class="flex flex-1 flex-col gap-y-7">
                     <li>
                       <ul
                         v-if="navigation[0]"
                         role="list"
-                        class="-mx-2 space-y-1"
+                        class="-mx-2 space-y-1 mt-2"
                       >
                         <DynamicMenu :menuItems="navigation[0].items" />
                       </ul>
@@ -134,7 +85,7 @@
     </TransitionRoot>
 
     <div
-      class="sticky top-0 z-40 flex items-center gap-x-6 bg-[#fffdf7] px-4 py-4 shadow-sm sm:px-6 border-b lg:border-b-2 border-[#93765d]"
+      class="sticky top-0 z-40 flex items-center gap-x-6 bg-[#fffdf7] px-4 py-4 shadow-sm sm:px-6 border-b lg:border-b-2 border-[#e6be1e]"
     >
       <button
         type="button"
@@ -161,11 +112,53 @@
         ZŠ Žulová - Škola pro všechny
       </div>
       <div class="flex h-8 lg:h-10 shrink-0 items-center rounded-lg">
-        <img
-          class="h-10 lg:h-14 w-auto rounded-lg shadow"
-          src="/logo.png"
-          alt="Your Company"
-        />
+        <div class="flex items-center">
+          <div
+            class="rounded-full bg-white shadow w-7 h-7 flex items-center justify-start ml-2"
+          >
+            <a
+              class="p-2 text-[#535355] hover:opacity-60 mx-auto text-center block w-fit"
+              aria-label="Visit TrendyMinds Facebook"
+              href="https://www.facebook.com/ZakladniSkolaZulova"
+              target="_blank"
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 320 512"
+                class="h-5"
+              >
+                <path
+                  fill="currentColor"
+                  d="m279.14 288 14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"
+                ></path>
+              </svg>
+            </a>
+          </div>
+          <div
+            class="rounded-full bg-white shadow w-7 h-7 flex items-center justify-center ml-2"
+          >
+            <a
+              class="p-2 text-[#535355] hover:opacity-60 mx-auto text-center block w-fit"
+              aria-label="Visit TrendyMinds Instagram"
+              href="https://www.instagram.com/zs_zulova/?utm_source=ig_web_button_share_sheet&igshid=OGQ5ZDc2ODk2ZA=="
+              target="_blank"
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 448 512"
+                class="h-5"
+              >
+                <path
+                  fill="currentColor"
+                  d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"
+                ></path>
+              </svg>
+            </a>
+          </div>
+          <img
+            class="h-10 lg:h-14 w-auto rounded-lg shadow ml-5"
+            src="/logo.png"
+            alt="zš žulová"
+          />
+        </div>
       </div>
     </div>
     <main class="">

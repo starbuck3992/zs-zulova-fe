@@ -14,24 +14,18 @@
           :src="
             config.public.apiBase + 'assets/' + slotProps.data.directus_files_id
           "
-          class="absolute h-full lg:h-[400px] w-full object-cover md:object-center rounded rounded-t-none"
+          class="absolute h-[400px] w-full object-cover md:object-center rounded rounded-t-none"
         />
-        <div class="mx-auto lg:h-[400px]"></div>
+        <div class="mx-auto h-[400px]"></div>
       </template>
     </CustomCarousel>
-    <div class="z-20 min-w-max max-w-screen-sm absolute top-5 right-5 rounded">
-      <div class="bg-[#fffdf7] w-full h-full absolute -z-10 rounded"></div>
-      <h2
-        class="text-xl z-20 hidden w-full lg:block font-bold tracking-tight text-[#535355] border-l-4 border-[#e6be1e] rounded rounded-l-none sm:text-xl uppercase p-3"
-      >
-        ZŠ ŽULOVÁ - Škola pro všechny
-      </h2>
-    </div>
-    <div class="flex gap-2 w-fit absolute bottom-5 -translate-x-1/2 left-1/2">
+    <div
+      class="grid md:grid-cols-6 gap-2 w-full max-w-xs md:max-w-3xl absolute bottom-5 -translate-x-1/2 left-1/2"
+    >
       <div
         v-for="card in cards"
         :key="card.name"
-        class="flex gap-x-2 xl:gap-x-4 rounded bg-[#fffdf7] border-[#e6be1e] border-2 hover:opacity-90 shadow px-3 py-2 ring-inset ring-white/10 cursor-pointer relative w-[200px] mx-auto sm:m-0 sm:w-full"
+        class="flex gap-x-2 xl:gap-x-2 rounded bg-[#fffdf7] hover:opacity-90 shadow px-2 py-2 ring-inset ring-white/10 cursor-pointer relative w-[200px] mx-auto sm:m-0 sm:w-full"
       >
         <NuxtLink
           v-if="card.to"
@@ -44,13 +38,13 @@
           :target="card.target"
           class="absolute w-full h-full inset-0"
         ></a>
-        <div class="flex gap-x-1 items-center w-28 xl:w-32">
+        <div class="flex gap-x-1 items-center w-28 xl:w-28">
           <component
             :is="card.icon"
             class="w-6 text-[#93765d]"
             aria-hidden="true"
           />
-          <div class="text-xs lg:text-xs 2xl:text-sm leading-7 w-full">
+          <div class="text-xs leading-3 w-full">
             <h3 class="font-semibold text-[#535355]">{{ card.name }}</h3>
           </div>
         </div>
@@ -190,6 +184,11 @@ const cards = [
     icon: CalendarIcon,
     link: "https://zszulova.bakalari.cz/timetable/public/",
     target: "_blank",
+  },
+  {
+    name: "Dokumenty",
+    icon: NewspaperIcon,
+    to: "dokumenty-ke-stazeni",
   },
 ];
 </script>
