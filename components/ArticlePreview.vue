@@ -14,7 +14,7 @@
       >
         <div class="relative w-full cursor-pointer">
           <img
-            :src="config.public.apiBase + 'assets/' + post.thumbnail"
+            :src="config.public.apiBase + 'assets/' + post.thumbnail + '?quality=50'"
             alt=""
             class="aspect-[16/9] w-full rounded-lg bg-white object-cover sm:aspect-[2/1] lg:aspect-[3/2]"
           />
@@ -68,7 +68,7 @@
       >
         <div class="relative w-full">
           <img
-            :src="config.public.apiBase + 'assets/' + post.thumbnail"
+            :src="config.public.apiBase + 'assets/' + post.thumbnail + '?quality=50'"
             alt=""
             class="aspect-[16/9] w-full rounded-lg rounded-b-none bg-gray-100 object-cover sm:aspect-[2/1] lg:aspect-[3/2]"
           />

@@ -12,7 +12,7 @@
         <div class="flex min-w-0 gap-x-4">
           <img
             class="h-12 w-12 flex-none rounded-lg bg-gray-50"
-            :src="config.public.apiBase + 'assets/' + post.thumbnail"
+            :src="config.public.apiBase + 'assets/' + post.thumbnail + '?quality=50'"
             alt=""
           />
           <div class="min-w-0 flex-auto">

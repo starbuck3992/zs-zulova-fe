@@ -37,7 +37,7 @@
               :src="
                 config.public.apiBase +
                 'assets/' +
-                slotProps.item.directus_files_id
+                slotProps.item.directus_files_id + '?quality=50'
               "
               :alt="'image'"
               style="width: 100%; max-height: 600px; display: block"
@@ -48,7 +48,7 @@
               :src="
                 config.public.apiBase +
                 'assets/' +
-                slotProps.item.directus_files_id
+                slotProps.item.directus_files_id + '?quality=50'
               "
               :alt="'image'"
               style="display: block"
@@ -72,7 +72,7 @@
             >
               <img
                 :src="
-                  config.public.apiBase + 'assets/' + image.directus_files_id
+                  config.public.apiBase + 'assets/' + image.directus_files_id + '?quality=50'
                 "
                 alt=""
                 class="pointer-events-none object-cover w-fit h-44 group-hover:opacity-75 p-1 rounded-xl"
