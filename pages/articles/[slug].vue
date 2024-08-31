@@ -1,28 +1,28 @@
 <template>
   <div class="mx-auto max-w-7xl 2xl:max-w-[1500px] px-6 lg:px-8">
     <div
-      v-if="article && article.length"
+      v-if="articleData"
       class="mx-auto max-w-2xl xl:max-w-5xl pt-10"
     >
       <h2
-        v-if="article[0]?.title"
+        v-if="articleData.title"
         class="text-3xl font-bold tracking-tight text-[#93765d] sm:text-4xl"
       >
-        {{ article[0]?.title }}
+        {{ articleData.title }}
       </h2>
       <div
         class="mt-5"
-        v-if="article[0]?.content"
-        v-html="article[0].content"
+        v-if="articleData.content"
+        v-html="articleData.content"
       ></div>
       <div
-        v-if="article[0]?.gallery && article[0]?.gallery?.length > 0"
-        class="flex justify-content-center mt-10"
+        v-if="articleGallery && articleGallery?.length > 0"
+        class="flex justify-content-center flex-col mt-10"
       >
         <Galleria
           v-model:activeIndex="activeIndex"
           v-model:visible="displayCustom"
-          :value="article[0].gallery"
+          :value="articleGallery"
           :responsiveOptions="responsiveOptions"
           :numVisible="7"
           containerStyle="max-width: 850px"
@@ -56,12 +56,12 @@
         </Galleria>
 
         <ul
-          v-if="article[0].gallery"
+          v-if="articleGallery"
           role="list"
           class="grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-3 sm:gap-x-6 lg:grid-cols-3 xl:gap-x-8"
         >
           <li
-            v-for="(image, index) of article[0].gallery"
+            v-for="(image, index) of articleGallery"
             :key="index"
             class="relative"
           >
@@ -82,6 +82,9 @@
             </div>
           </li>
         </ul>
+        <Button v-if="articleGallery.length < allImages.length" @click="loadMoreImages" class="mx-auto mt-12">
+          Načíst další obrázky
+        </Button>
       </div>
     </div>
     <div v-else class="mx-auto max-w-2xl xl:max-w-5xl pt-10">
@@ -94,23 +97,48 @@
 
 <script setup lang="ts">
 const { $directus, $readItems } = useNuxtApp();
-import { ref } from "vue";
+import Button from "primevue/button";
+import {onMounted, ref} from "vue";
 import { useRoute } from "vue-router";
 import Galleria from "primevue/galleria";
 
 const config = useRuntimeConfig();
 const route = useRoute();
 
-const { data: article } = await useAsyncData("articles", () => {
-  return $directus.request(
-    $readItems("articles", {
-      filter: {
-        slug: { _eq: route.params.slug },
-      },
-      fields: ["id, title, content, gallery.*"],
-    })
-  );
+const maxImages = 9;
+const articleGallery = ref([]);
+const allImages = ref([]);
+const articleData = ref();
+
+onMounted(async () => {
+
+  const { data: article } = await useAsyncData("articles", () => {
+    return $directus.request(
+        $readItems("articles", {
+          filter: {
+            slug: { _eq: route.params.slug },
+          },
+          fields: ["id, title, content, gallery.*"],
+        })
+    );
+  });
+
+  articleData.value = article.value[0];
+
+  allImages.value = article.value[0]?.gallery;
+  articleGallery.value = article.value[0].gallery.slice(0, maxImages);
 });
+
+
+// Load more images
+const loadMoreImages = () => {
+  const newImages = allImages.value.slice(
+    articleGallery.value.length,
+    articleGallery.value.length + maxImages
+  );
+  articleGallery.value = [...articleGallery.value, ...newImages];
+};
+
 const activeIndex = ref(0);
 const responsiveOptions = ref([
   {
