@@ -5,13 +5,16 @@ import {cs} from './assets/presets/cs.json';
 export default defineNuxtConfig({
   ssr: false,
   css: ['primevue/resources/themes/tailwind-light/theme.css'],
+
   runtimeConfig: {
     public: {
         apiBase: process.env.API_BASE || "http://localhost:8055",
     }
   },
+
   devtools: { enabled: true },
   modules: ["@nuxtjs/tailwindcss", "nuxt-primevue"],
+
   primevue: {
     usePrimeVue: true,
     options: {
@@ -38,6 +41,7 @@ export default defineNuxtConfig({
       exclude: undefined,
     },
   },
+
   app: {
     head: {
       link: [
@@ -48,4 +52,6 @@ export default defineNuxtConfig({
       ],
     },
   },
+
+  compatibilityDate: '2024-11-11',
 });

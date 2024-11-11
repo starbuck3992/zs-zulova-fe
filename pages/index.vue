@@ -12,8 +12,10 @@
       <template #item="slotProps">
         <img
           :src="
-            config.public.apiBase + 'assets/' + slotProps.data.directus_files_id +
-              '?quality=50'
+            config.public.apiBase +
+            'assets/' +
+            slotProps.data.directus_files_id +
+            '?quality=50'
           "
           class="absolute h-[400px] w-full object-cover md:object-center rounded rounded-t-none"
         />
@@ -173,7 +175,7 @@ const cards = [
   {
     name: "Jídelníček",
     icon: NewspaperIcon,
-    to: "jidelni-listek",
+    to: "jidelnicek",
   },
   {
     name: "Kontakty",
